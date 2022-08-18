@@ -93,7 +93,13 @@ $templatecontext=[
 
 echo $OUTPUT->header();
 echo $OUTPUT->heading($route);
+//if(checkUrl($url)){
 echo $OUTPUT->render_from_template('mod_jupyter/manage',$templatecontext);
+//    \core\notification::success('Url found.');
+//}else{
+//    echo $OUTPUT->render_from_template('mod_jupyter/manage_error',$templatecontext);
+//    \core\notification::error(get_string('jupyter_url_error', 'jupyter'));
+//}
 echo $OUTPUT->footer();
 
 function genLink(string $repo, string $branch, string $file) : string {
@@ -106,4 +112,25 @@ function genLink(string $repo, string $branch, string $file) : string {
         urlencode($file) .
         '&branch=' .
         urlencode($branch);
+}
+
+function checkUrl(string $url){
+    $curlHandle = curl_init();
+    // set URL and other appropriate options
+    curl_setopt($curlHandle, CURLOPT_URL, $url);
+    curl_setopt($curlHandle, CURLOPT_HEADER, 0);
+    curl_exec($curlHandle);
+    // Check HTTP status code
+    if (!curl_errno($curlHandle)) {
+        switch ($http_code = curl_getinfo($curlHandle, CURLINFO_HTTP_CODE)) {
+            case 200:  # OK
+                return true;
+                break;
+            default:
+                return false;
+                echo 'Unexpected HTTP code: ', $http_code, "\n";
+        }
+    }
+    // Close handle
+    curl_close($curlHandle);
 }
