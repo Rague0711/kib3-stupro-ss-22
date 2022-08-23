@@ -39,7 +39,7 @@ $string['file'] = 'Notebook file to open';
 
 $string['jupyter:addinstance'] = 'Add a new Jupyter Activity';
 
-$string['jupyter_url_error'] = 'Url could not be reached, please contact an admin or visit the admin settings and check the url setting.';
+$string['jupyter_url_error'] = '<strong>Error</strong><br>Sorry, your jupyter could not be loaded!<br>Please try contacting an admin about this issue.<br><strong>Cause:</strong> The provided url could not be reached, check the admin settings!';
 
 //Admin plugin settings
 //General
