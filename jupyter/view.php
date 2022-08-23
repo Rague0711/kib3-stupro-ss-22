@@ -115,23 +115,15 @@ function gen_link(string $repo, string $branch, string $file) : string {
         urlencode($branch);
 }
 
-function checkUrl(string $url){
-    $curlHandle = curl_init();
-    // set URL and other appropriate options
-    curl_setopt($curlHandle, CURLOPT_URL, $url);
-    curl_setopt($curlHandle, CURLOPT_HEADER, 0);
-    curl_exec($curlHandle);
-    // Check HTTP status code
-    if (!curl_errno($curlHandle)) {
-        switch ($http_code = curl_getinfo($curlHandle, CURLINFO_HTTP_CODE)) {
-            case 200:  # OK
-                return true;
-                break;
-            default:
-                return false;
-                echo 'Unexpected HTTP code: ', $http_code, "\n";
-        }
-    }
-    // Close handle
-    curl_close($curlHandle);
+/**
+ * @param string $url The url to check for availability.
+ * @return int $errorno The curl errorcode.
+ */
+function check_url(string $url): int {
+    $curl = new curl();
+    //$curl = new curl(array('debug'=>true));
+    $html = $curl->get($url);
+    $response = $curl->getResponse();
+    $errorno = $curl->get_errno();
+    return $errorno;
 }
