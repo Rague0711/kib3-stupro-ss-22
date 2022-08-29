@@ -42,7 +42,6 @@ Alternatively, you can run
 
 to complete the installation from the command line.
 
-
 ## Installing new dependencies ##
 
 To get started, you first have to install Composer locally (see https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos
