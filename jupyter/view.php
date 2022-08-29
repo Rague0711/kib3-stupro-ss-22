@@ -57,6 +57,7 @@ $PAGE->set_context($modulecontext);
 // User interface.
 use Firebase\JWT\JWT;
 
+// Create id with the user's unique username from Moodle.
 $uniqueid = mb_strtolower($USER->username, "UTF-8");
 
 // Custom key must equal key in jupyterhub_docker .env!
@@ -98,7 +99,7 @@ echo $OUTPUT->footer();
 
 
 /**
- * Creates nbgitpuller part of the link to the jupyterhub.
+ * Creates nbgitpuller part of the link to the JupyterHub.
  *
  * @param string $repo
  * @param string $branch
