@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'JupyterHub';
+$string['pluginname'] = 'Jupyter Notebook';
 $string['modulenameplural'] = '';
-$string['modulename'] = 'JupyterHub';
+$string['modulename'] = 'Jupyter Notebook';
 $string['pluginadministration'] = 'pluginadministration';
 $string['jupytername_help'] = 'Help text';
 $string['jupytername'] = 'Jupyter Name'; // Name of the activity module instance.
