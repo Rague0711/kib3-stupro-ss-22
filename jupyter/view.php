@@ -93,12 +93,11 @@ $templatecontext=[
 
 echo $OUTPUT->header();
 //echo $OUTPUT->heading($route);
-$errorno = check_url($jupyterLogin);
-
-if($errorno == 7){
+$isReachable = check_url($jupyterLogin);
+if($isReachable){
     echo $OUTPUT->render_from_template('mod_jupyter/manage',$templatecontext);
 }else{
-    \core\notification::error(get_string('jupyter_url_error', 'jupyter'));
+    \core\notification::error(get_string('jupyter_url_error', 'jupyter', ['url'=>$url]));
     echo $OUTPUT->render_from_template('mod_jupyter/manage_error',$templatecontext);
 }
 echo $OUTPUT->footer();
