@@ -139,8 +139,6 @@ function check_url(string $url): bool {
     $curl->setopt(array('CURLOPT_MAXREDIRS'=> 100));
     $html = $curl->get($url);
     $response = $curl->getResponse();
-    $info = $curl->get_info();
-    $httpcode = $info['http_code'];
     $errorno = $curl->get_errno();
 
     if($httpcode < 400 && $httpcode >= 100){
