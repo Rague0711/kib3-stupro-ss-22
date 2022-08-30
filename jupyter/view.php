@@ -117,9 +117,9 @@ function genLink(string $repo, string $branch, string $file) : string {
 
 /**
  * @param string $url The url to check for availability.
- * @return int $errorno The curl errorcode.
+ * @return boolean Returns true if url could be reached with acceptable http code (1xx-3xx)
  */
-function check_url(string $url): int {
+function check_url(string $url): bool {
     $url = str_replace("127.0.0.1","host.docker.internal",$url);
     //$curl = new curl();
     $curl = new curl(array('debug'=>true));
@@ -134,7 +134,6 @@ function check_url(string $url): int {
 
     \core\notification::error('http_code: ' . $info['http_code']);
     \core\notification::error('http response: ' . implode(",", $response));
-
     \core\notification::error('curl error number: ' . $errorno);
 
     if($httpcode < 400 && $httpcode >= 100){
