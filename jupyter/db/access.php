@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Capabilites definitions for the mod_jupyter plugin.
+ * Capability definitions for the mod_jupyter plugin.
  *
  * @package   mod_jupyter
  * @copyright 2022 onwards, University of Stuttgart(StuPro 2022)
