@@ -120,10 +120,26 @@ function genLink(string $repo, string $branch, string $file) : string {
  * @return int $errorno The curl errorcode.
  */
 function check_url(string $url): int {
-    $curl = new curl();
-    //$curl = new curl(array('debug'=>true));
+    $url = str_replace("127.0.0.1","host.docker.internal",$url);
+    //$curl = new curl();
+    $curl = new curl(array('debug'=>true));
+    //$curl->setopt(array('CURLOPT_CONNECTTIMEOUT'=> 5));
+    $curl->setopt(array('CURLOPT_FOLLOWLOCATION'=> true));
+    $curl->setopt(array('CURLOPT_MAXREDIRS'=> 100));
     $html = $curl->get($url);
     $response = $curl->getResponse();
+    $info = $curl->get_info();
+    $httpcode = $info['http_code'];
     $errorno = $curl->get_errno();
-    return $errorno;
+
+    \core\notification::error('http_code: ' . $info['http_code']);
+    \core\notification::error('http response: ' . implode(",", $response));
+
+    \core\notification::error('curl error number: ' . $errorno);
+
+    if($httpcode < 400 && $httpcode >= 100){
+        return true;
+    }else{
+        return false;
+    }
 }
