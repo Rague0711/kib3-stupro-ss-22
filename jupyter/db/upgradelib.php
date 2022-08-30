@@ -28,7 +28,7 @@
  */
 function mod_jupyter_helper_function() {
 
-    // Please note: you can only use raw low level database access here.
+    // Please note: You can only use raw low level database access here.
     // Avoid Moodle API calls in upgrade steps.
     //
     // For more information please read {@link https://docs.moodle.org/dev/Upgrade_API}.

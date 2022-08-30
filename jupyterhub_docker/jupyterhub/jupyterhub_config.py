@@ -1,7 +1,8 @@
 import os
 import sys
 
-c = get_config() # pyright: reportUndefinedVariable=false
+# pyright: reportUndefinedVariable=false
+c = get_config() 
 
 c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
 c.DockerSpawner.image = os.environ['DOCKER_JUPYTER_IMAGE']
@@ -63,7 +64,6 @@ c.JupyterHub.db_url = 'postgresql://postgres:{password}@{host}/{db}'.format(
 )
 
 # Dummy authenticator
-#c.JupyterHub.authenticator_class = "dummy"
 
 # JWT Authenticator Setup
 # JSONWebTokenLocalAuthenticator provides local user creation

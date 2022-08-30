@@ -66,6 +66,7 @@ class mod_jupyter_mod_form extends moodleform_mod {
             $mform->setType('file', PARAM_CLEANHTML);
         }
 
+        // Setting rules for the input fields above.
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
         $mform->addHelpButton('name', 'jupytername', 'mod_jupyter');

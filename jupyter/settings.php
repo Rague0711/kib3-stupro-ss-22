@@ -43,7 +43,7 @@ if ($hassiteconfig) {
         $settings->add(new admin_setting_configtext('mod_jupyter/jupyterip', get_string('jupyterip', 'jupyter'),
             get_string('jupyterip_desc', 'jupyter'), '127.0.0.1', PARAM_HOST));
 
-        // Jupyter Port setting!
+        // Jupyter port setting!
         $settings->add(new admin_setting_configtext('mod_jupyter/jupyterport', get_string('jupyterport', 'jupyter'),
             get_string('jupyterport_desc', 'jupyter'), 8000, PARAM_INT));
 

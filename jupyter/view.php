@@ -26,7 +26,7 @@ require(__DIR__.'/../../config.php');
 require_once(__DIR__.'/lib.php');
 require(__DIR__ . '/vendor/autoload.php');
 
-// MOODLE specific config.
+// Moodle specific config.
 
 // Course module id.
 $id = optional_param('id', 0, PARAM_INT);
@@ -80,7 +80,7 @@ $gitpath = gen_link(
     $moduleinstance->file
 );
 
-// If url empty, use port and ip.
+// If URL empty, use port and ip.
 if (empty($url)) {
     $jupyterlogin = "http://" . $ip . ":" . $port . $gitpath . "&auth_token=" . $jwt;
 

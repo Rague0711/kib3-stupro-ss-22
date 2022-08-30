@@ -56,12 +56,15 @@ zip-plugin:
     - cd jupyter
     - composer update
   artifacts:
-    name: jupyter # Name of the resulting .zip
+    # Name of the resulting .zip
+    name: jupyter 
     paths:
-      - jupyter/* # Include whole directory
+      # Include whole directory
+      - jupyter/* 
   only:
     refs:
-      - main # Run only on specific branch
+      # Run only on specific branch
+      - main 
       - ci-improvement-regarding-artifact
     changes:
       - jupyter/*
