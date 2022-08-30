@@ -88,7 +88,14 @@ $templatecontext = [
 ];
 
 echo $OUTPUT->header();
-echo $OUTPUT->render_from_template('mod_jupyter/manage', $templatecontext);
+//echo $OUTPUT->heading($route);
+$isReachable = check_url($jupyterLogin);
+if($isReachable){
+    echo $OUTPUT->render_from_template('mod_jupyter/manage',$templatecontext);
+}else{
+    \core\notification::error(get_string('jupyter_url_error', 'jupyter', ['url'=>$url]));
+    echo $OUTPUT->render_from_template('mod_jupyter/manage_error',$templatecontext);
+}
 echo $OUTPUT->footer();
 
 
