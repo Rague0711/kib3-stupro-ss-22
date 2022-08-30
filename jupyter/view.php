@@ -121,9 +121,8 @@ function gen_link(string $repo, string $branch, string $file) : string {
  */
 function check_url(string $url): bool {
     $url = str_replace("127.0.0.1","host.docker.internal",$url);
-    //$curl = new curl();
-    $curl = new curl(array('debug'=>true));
-    //$curl->setopt(array('CURLOPT_CONNECTTIMEOUT'=> 5));
+    $curl = new curl();
+    //$curl = new curl(array('debug'=>true));
     $curl->setopt(array('CURLOPT_FOLLOWLOCATION'=> true));
     $curl->setopt(array('CURLOPT_MAXREDIRS'=> 100));
     $html = $curl->get($url);
@@ -131,10 +130,6 @@ function check_url(string $url): bool {
     $info = $curl->get_info();
     $httpcode = $info['http_code'];
     $errorno = $curl->get_errno();
-
-    \core\notification::error('http_code: ' . $info['http_code']);
-    \core\notification::error('http response: ' . implode(",", $response));
-    \core\notification::error('curl error number: ' . $errorno);
 
     if($httpcode < 400 && $httpcode >= 100){
         return true;
