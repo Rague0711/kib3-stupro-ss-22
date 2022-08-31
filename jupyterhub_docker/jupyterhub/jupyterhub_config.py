@@ -1,9 +1,6 @@
 import os
 import sys
 
-# pyright: reportUndefinedVariable=false
-c = get_config() 
-
 c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
 c.DockerSpawner.image = os.environ['DOCKER_JUPYTER_IMAGE']
 
@@ -53,6 +50,8 @@ c.JupyterHub.services = [
             "-m", "jupyterhub_idle_culler",
             "--timeout=3600",
         ],
+        # For further information about the available settings for idle culler check the following link:
+        # https://github.com/jupyterhub/jupyterhub-idle-culler
     }
 ]
 
@@ -64,6 +63,7 @@ c.JupyterHub.db_url = 'postgresql://postgres:{password}@{host}/{db}'.format(
 )
 
 # Dummy authenticator
+# c.JupyterHub.authenticator_class = "dummy"
 
 # JWT Authenticator Setup
 # JSONWebTokenLocalAuthenticator provides local user creation
