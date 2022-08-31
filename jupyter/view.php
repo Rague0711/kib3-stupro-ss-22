@@ -93,11 +93,15 @@ $templatecontext=[
 
 echo $OUTPUT->header();
 //echo $OUTPUT->heading($route);
+$giturl = $moduleinstance->repourl . '/' . 'blob/' .  $moduleinstance->branch . '/' . $moduleinstance->file;
+$gitisReachable = check_url($giturl);
+
 $isReachable = check_url($jupyterLogin);
-if($isReachable){
+
+if($gitisReachable && $isReachable){
     echo $OUTPUT->render_from_template('mod_jupyter/manage',$templatecontext);
 }else{
-    \core\notification::error(get_string('jupyter_url_error', 'jupyter', ['url'=>$url]));
+    show_error_message();
     echo $OUTPUT->render_from_template('mod_jupyter/manage_error',$templatecontext);
 }
 echo $OUTPUT->footer();
@@ -115,6 +119,7 @@ function genLink(string $repo, string $branch, string $file) : string {
 }
 
 /**
+ * Checks if url is available and return bool accordingly
  * @param string $url The url to check for availability.
  * @return boolean Returns true if url could be reached with acceptable http code (1xx-3xx)
  */
@@ -136,3 +141,24 @@ function check_url(string $url): bool {
         return false;
     }
 }
+
+/**
+ * Shows different error messages depending on cause of error
+ */
+function show_error_message(){
+    global $isReachable, $gitisReachable, $url;
+    switch($isReachable){
+        case false:
+            if(!$gitisReachable){
+                \core\notification::error(get_string('jupyterbotherror', 'jupyter', ['url'=>$url]));
+            }else{
+                \core\notification::error(get_string('jupyteradminsettingserror', 'jupyter', ['url'=>$url]));
+            }
+            break;
+        case true:
+            if(!$gitisReachable){
+                \core\notification::error(get_string('jupyterinstancesettingserror', 'jupyter', ['url'=>$url]));
+            }
+    }
+}
+
