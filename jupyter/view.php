@@ -88,17 +88,16 @@ $templatecontext = [
 ];
 
 echo $OUTPUT->header();
-//echo $OUTPUT->heading($route);
 $giturl = $moduleinstance->repourl . '/' . 'blob/' .  $moduleinstance->branch . '/' . $moduleinstance->file;
-$gitisReachable = check_url($giturl);
+$gitisreachable = check_url($giturl);
 
-$isReachable = check_url($jupyterLogin);
+$isrechablechable = check_url($jupyterlogin);
 
-if($gitisReachable && $isReachable){
-    echo $OUTPUT->render_from_template('mod_jupyter/manage',$templatecontext);
-}else{
+if($gitisreachable && $isrechablechable) {
+    echo $OUTPUT->render_from_template('mod_jupyter/manage', $templatecontext);
+} else {
     show_error_message();
-    echo $OUTPUT->render_from_template('mod_jupyter/manage_error',$templatecontext);
+    echo $OUTPUT->render_from_template('mod_jupyter/manage_error', $templatecontext);
 }
 echo $OUTPUT->footer();
 
@@ -134,7 +133,6 @@ function gen_link(string $repo, string $branch, string $file) : string {
 function check_url(string $url): bool {
     $url = str_replace("127.0.0.1","host.docker.internal",$url);
     $curl = new curl();
-    //$curl = new curl(array('debug'=>true));
     $curl->setopt(array('CURLOPT_FOLLOWLOCATION'=> true));
     $curl->setopt(array('CURLOPT_MAXREDIRS'=> 100));
     $html = $curl->get($url);
@@ -143,9 +141,9 @@ function check_url(string $url): bool {
     $httpcode = $info['http_code'];
     $errorno = $curl->get_errno();
 
-    if($httpcode < 400 && $httpcode >= 100){
+    if($httpcode < 400 && $httpcode >= 100) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
@@ -154,18 +152,18 @@ function check_url(string $url): bool {
  * Shows different error messages depending on cause of error
  */
 function show_error_message(){
-    global $isReachable, $gitisReachable, $url;
-    switch($isReachable){
+    global $isrechablechable, $gitisreachable, $url;
+    switch($isrechablechable){
         case false:
-            if(!$gitisReachable){
+            if(!$gitisreachable) {
                 \core\notification::error(get_string('jupyterbotherror', 'jupyter', ['url'=>$url]));
-            }else{
-                \core\notification::error(get_string('jupyteradminsettingserror', 'jupyter', ['url'=>$url]));
+            } else {
+                \core\notification::error(get_string('jupyteradminsettingserror', 'jupyter', ['url' => $url]));
             }
             break;
         case true:
-            if(!$gitisReachable){
-                \core\notification::error(get_string('jupyterinstancesettingserror', 'jupyter', ['url'=>$url]));
+            if(!$gitisreachable) {
+                \core\notification::error(get_string('jupyterinstancesettingserror', 'jupyter', ['url' => $url]));
             }
     }
 }

@@ -37,7 +37,8 @@ if ($hassiteconfig) {
 
         $regexipandurl = "/(^(https?:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})\:?([0-9]{1,5})?$)";
         $regexipandurl .= "|";
-        $regexipandurl .= "(^((https?:\/\/)|^(www\.))([a-zA-Z0-9\?\/\+\*\~\=\-\#\@\!\&\%\_]+\.[a-z]{2,4})(\/[a-zA-Z0-9\?\/\+\*\~\=\-\#\@\!\&\%\_]*)*$)/";
+        $regexipandurl .= "(^((https?:\/\/)|^(www\.))([a-zA-Z0-9\?\/\+\*\~\=\-\#\@\!\&\%\_]
+            +\.[a-z]{2,4})(\/[a-zA-Z0-9\?\/\+\*\~\=\-\#\@\!\&\%\_]*)*$)/";
 
         // Jupyter URL setting!
         $settings->add(new admin_setting_configtext('mod_jupyter/jupyterurl', get_string('jupyterurl', 'jupyter'),

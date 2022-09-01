@@ -49,6 +49,6 @@ $string['jupyterbotherror'] = '<strong>Error</strong><br>Sorry, your Jupyter Not
 // General.
 $string['generalconfig'] = 'General settings';
 $string['generalconfig_desc'] = 'Settings required to reach the JupyterHub this plugin uses. Replace the default value with your own <strong>URL/IP</strong>.';
-// URL
+// URL.
 $string['jupyterurl'] = 'Jupyter URL/IP';
 $string['jupyterurl_desc'] = 'Add the URL (e.g. https://moodle.org) or IP (e.g. http://127.0.0.1:8000) to your JupyterHub.';
