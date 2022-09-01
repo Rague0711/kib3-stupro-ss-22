@@ -45,8 +45,8 @@ $string['jupyterinstancesettingserror'] = '<strong>Error</strong><br>Sorry, your
 
 $string['jupyterbotherror'] = '<strong>Error</strong><br>Sorry, your Jupyter Notebook could not be loaded.<br>Please try contacting an admin and provide the following information to help resolve this issue.<br><br><strong>Cause:</strong> The provided URL ({$a->url}) is not available or does not lead to a Jupyter Notebook.<br>The following steps can help to resolve this issue:<br>1.) Check the <i>Admin Settings</i> and make sure the URL matches the one used in the Jupyterhub Docker.<br>2.) Check the <i>Activity Settings</i>  and make sure <i>Git Repository URL</i>, <i>Branch</i> and <i>Notebook file to open</i> are set correctly.';
 
-// Admin plugin settings
-// General
+// Admin plugin settings.
+// General.
 $string['generalconfig'] = 'General settings';
 $string['generalconfig_desc'] = 'Settings required to reach the JupyterHub this plugin uses. Replace the default value with your own <strong>URL/IP</strong>.';
 // URL
