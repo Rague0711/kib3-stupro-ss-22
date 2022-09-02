@@ -130,3 +130,19 @@ Make sure that the plugin uses the correct URL for JupyterHub. This can be check
 ### Getting an Overview Over Containers
 If everything has been set up correctly, it should look similar to the image provided below. If users are active, they might spawn notebooks and the number of Docker containers increases, adding one or multiple containers named "jupyter-user".
 ![dockerPS](images/dockerPS.png)
+
+
+
+
+## Deutsch
+
+## Benutzer
+Nachdem man sich angemeldet hat, kommt man auf dem Dashboard raus.
+Hier klickt man links auf die Startseite, wo Sie dann die Ihnen zur Verfügung
+stehenden Kurse sehen. Dort klicken Sie auf den richtigen Kurs. Falls eine Fehlermeldung kommt,
+dass Sie diesem Kurs noch nicht zugewiesen worden sind, so melden Sie sich bitte bei dem jeweiligen Kursleiter.
+In dem jeweiligen Kurs können Sie dann auf Aufgaben anklicken, die unterschiedliche Notebooks beinhalten.
+
+## English
+
+## User
