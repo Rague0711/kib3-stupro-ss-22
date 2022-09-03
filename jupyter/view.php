@@ -70,20 +70,20 @@ $jwt = JWT::encode([
     "exp" => time() + 15
 ], $key, 'HS256');
 
-$jupyter_url = get_config('mod_jupyter', 'jupyterurl');
+$jupyterurl = get_config('mod_jupyter', 'jupyterurl');
 $repo = $moduleinstance->repourl;
 $branch = $moduleinstance->branch;
 $file = $moduleinstance->file;
-$git_filelink = gen_git_filelink();
+$gitfilelink = gen_gitfilelink();
 
-$git_reachable = check_url($git_filelink) === 200;
-$jupyter_reachable = check_jupyter($jupyter_url);
+$gitreachable = check_url($gitfilelink)[0] === 200;
+$jupyterreachable = check_jupyter($jupyterurl);
 
 echo $OUTPUT->header();
 
-if ($git_reachable && $jupyter_reachable) {
+if ($gitreachable && $jupyterreachable) {
     echo $OUTPUT->render_from_template('mod_jupyter/manage', [
-        'login' => $jupyter_url . gen_gitpath($repo, $branch, $file) . "&auth_token="  . $jwt
+        'login' => $jupyterurl . gen_gitpath($repo, $branch, $file) . "&auth_token="  . $jwt
     ]);
 } else {
     show_error_message();
@@ -116,7 +116,7 @@ function gen_gitpath() : string {
  * Generates link to file in git repository
  * @return string example: https://github.com/username/reponame/blob/branch/notebook.ipynb
  */
-function gen_git_filelink() : string {
+function gen_gitfilelink() : string {
     global $repo, $file, $branch;
 
     if (preg_match("/\/$/", "$repo")) {
@@ -132,45 +132,50 @@ function gen_git_filelink() : string {
  * @return bool
  */
 function check_jupyter(string $url) : bool {
-    $http_code = check_url($url);
+    $res = check_url($url);
 
-    if ($http_code !== 401 && strpos($url, "127.0.0.1") !== false) {
-        $http_code = check_url(str_replace("127.0.0.1", "host.docker.internal", $url));
+    if ($res[0] !== 401 && strpos($url, "127.0.0.1") !== false) {
+        $res = check_url(str_replace("127.0.0.1", "host.docker.internal", $url));
     }
 
-    return $http_code === 401; // Should return 401 if reachable since auth_token is not set.
+    // Check if respose code matches and "x-jupyterhub-version" header is set in response header
+    // response code should be 401 because we didnt pass an auth token
+    return $res[0] === 401 && $res[1] != "";
 }
 
 /**
  * Send http request to url and return response status code
  * @param string $url The url to check for availability.
- * @return boolean Returns http status code of the request
+ * @return array Returns http status code of the request and response header string
  */
-function check_url(string $url) : int {
-    $ch = curl_init($url);
-    @curl_setopt_array( $ch, array(
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_FAILONERROR => true,
-        CURLOPT_RETURNTRANSFER => true
-    ));
-    curl_exec($ch);
-    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
+function check_url(string $url) : array {
+    $client = new GuzzleHttp\Client();
+    try {
+        $res = $client->get($url);
+    }
+    catch (GuzzleHttp\Exception\RequestException $e) {
+        $res = $e->getResponse();
+    }
+    catch (GuzzleHttp\Exception\ConnectException $e) {
+        return [0,""];
+    }
 
-    return $http_code;
+    return [
+        $res->getStatusCode(),
+        $res->getHeaderLine("x-jupyterhub-version")
+    ];
 }
-
 
 /**
  * Shows different error messages depending on cause of error
  */
 function show_error_message() {
-    global $git_reachable, $jupyter_reachable, $jupyter_url, $git_filelink;
+    global $gitreachable, $jupyterreachable, $jupyterurl, $gitfilelink;
 
-    if (!$jupyter_reachable) {
-        \core\notification::error(get_string('jupyteradminsettingserror', 'jupyter', ['url' => $jupyter_url]));
+    if (!$jupyterreachable) {
+        \core\notification::error(get_string('jupyteradminsettingserror', 'jupyter', ['url' => $jupyterurl]));
     }
-    if (!$git_reachable) {
-        \core\notification::error(get_string('jupyterinstancesettingserror', 'jupyter', ['url' => $git_filelink]));
+    if (!$gitreachable) {
+        \core\notification::error(get_string('jupyterinstancesettingserror', 'jupyter', ['url' => $gitfilelink]));
     }
 }
