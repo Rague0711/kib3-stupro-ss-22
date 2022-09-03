@@ -12,36 +12,34 @@ Weitere Informationen dazu finden Sie in der IT-Administrator-Dokumentation.
 
 ### Installation des Plugins
 
-TODO: deutsche screenshots machen wenn moodle auf deutsch \
-
 1.  Erstelle eine Zip-Datei vom Jupyter Verzeichnis [Jupyter](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyter). \
     Die Zip-Datei sollte ebenfalls "jupyter" genannt werden.
     ![JupyterZip](images/jupyterZipDeutsch.png)
 2.  Öffnen Sie Moodle und melden Sie sich mit einem Administrator Profil an um weitere Einstellungen im Verlauf dieser Anleitung vorzunehmen.
-3.  Klicken Sie auf  __Site administration__.
-    ![SiteAdministration](images/siteAdmin.png)
+3.  Klicken Sie auf  __Website-Administration__.
+    ![SiteAdministration](images/websiteAdministration.png)
 4.  Klicken Sie auf __Plugins__.
-    ![Plugin](images/plugin.png)
-5.  Klicken Sie auf __Install Plugins__.
-    ![ChoseFile](images/choseFile.png)
-6.  Fügen Sie die "jupyter.zip" datei via "Choose a file..." or "drag and drop" hinzu.
-7.  Klicken Sie auf __"Install plugin from the ZIP file"__ button to install the plugin.
-8.  Klicken Sie auf __Continue__.
-9.  Als nächstes erscheint eine Seite über aktuelle Veröffentlichungsinformtaionen. Scrollen Sie herunter und klicken Sie wieder auf __Continue__ .
-10. Nun wird das zu installierende Plugin dargestellt. Um fortzufahren klicken Sie auf __Upgrade Moodle datebase now__.
-11. Es sollte eine Erfolgsmeldung über die Installation des Plugins angezeigt werden. Drücken Sie auf __Continue__ .
+    ![Plugin](images/pluginsDeutsch.png)
+5.  Klicken Sie auf __Plugin installieren__.
+    ![ChoseFile](images/installierenVonPlugin.png)
+6.  Fügen Sie die "jupyter.zip" datei via "Datei auswählen..." oder "drag and drop" hinzu.
+7.  Klicken Sie auf den __Plugin installieren__ Button.
+8.  Klicken Sie auf __Weiter__.
+9.  Als nächstes erscheint eine Seite über aktuelle Veröffentlichungsinformtaionen. Scrollen Sie herunter und klicken Sie wieder auf __Weiter__ .
+10. Nun wird das zu installierende Plugin dargestellt. Um fortzufahren klicken Sie auf __Aktualisierung der Datenbank starten__.
+11. Es sollte eine Erfolgsmeldung über die Installation des Plugins angezeigt werden. Drücken Sie auf __Weiter__ .
 12. URL/IP settings werden angezeigt. Wenn das JupyterHub Docker setup erfolgreich ausgeführt wurde, werden die vordefinierten Einstellungen bereits korrekt sein und Sie können fortfahren.\
     Falls ihr IT Administrator Änderungen vorgenommen hat bezüglich einer anderen URL, können Sie hier eine neue URL bzw IP und port angeben für den JupyterHub Server.
-13. Klicken Sie auf __Save changes__ um die Installation des Plugins abzuschließen.
+13. Klicken Sie auf __Änderungen speichern__ um die Installation des Plugins abzuschließen.
 
 ### Einbindung des Plugins in einen Kurs
-1. Navigieren Sie zu __Site Home__.
+1. Navigieren Sie zur __Startseite__.
 2. Wählen Sie den Kurs aus, indem sie das Plugin verwenden möchten.
-3. Aktivieren Sie die Bearbeitung  mit __Turn editing on__ oben rechts.
-   ![courseEditingOn](images/courseEditingOn.png)
-4. Klicken Sie auf __"Add an activity or resource"__ und wählen Sie das __Jupyter Notebook__ plugin.
-   ![addActivity](images/addActivity.png)
-   ![jupyterPlugin](images/addJupyter.png)
+3. Aktivieren Sie die Bearbeitung  mit __Bearbeiten einschalten__ oben rechts.
+   ![courseEditingOn](images/bearbeitenEinschalten.png)
+4. Klicken Sie auf __"Aktivität oder Material anlegen"__ und wählen Sie das __Jupyter Notebook__ Plugin.
+   ![addActivity](images/aktivitaetAnlegen.png)
+   ![jupyterPlugin](images/jupyterNotebookWaehlen.png)
 5. Geben Sie einen Namen für ihre Jupyter Instanz an. \
    Um ihre Jupyter Notebook Dateien an die im Kurs eingeschriebenen Studierenden zu verteilen, müssen Sie sie zunächst in einem Git-Repository hochladen (z. B. [GitLab](https://gitlab.com/) oder [GitHub](https://github.com/)).\
    Nun müssen Sie die URL des Repositorys und den zu verwendenden branch angeben (der Standardbranch heißt `main` oder `master`) sowie die Datei angeben, die geöffnet werden soll.
@@ -49,15 +47,17 @@ TODO: deutsche screenshots machen wenn moodle auf deutsch \
 7. Nun kann gespeichert und angezeigt werden.
 
 ### Plugin Einstellungen
-1. Navigieren Sie zu __Site Administration__.
+1. Navigieren Sie zu __Website-Administration__.
 2. Öffnen Sie __Plugins__.
-3. KLicken Sie auf __Manages Activities__ unter __Activity Modules__.
-4. Suchen Sie nach __Jupyter Notebook__ und klicken sie auf __Settings__.
-   ![settingsJupyter](images/settingsJupyter.png)
+3. Klicken Sie auf __Übersicht__ unter __Aktivitäten__.
+4. Suchen Sie nach __Jupyter Notebook__ und klicken sie auf __Einstellungen__.
+   ![settingsJupyter](images/einstellungen.png)
 
 ### Deinstallieren des Plugins
-1. Navigieren Sie zu __Site administration__ > __Plugins__ > __Plugins overview__.
-2. Suchen Sie nach __JupyterNotebook__ und klicken Sie __Uninstall__.
+1. Navigieren Sie zu __Website-Administration__.
+2. Öffnen Sie __Plugins__.
+3. Klicken Sie auf __Übersicht__ unter __Aktivitäten__.
+4. Suchen Sie nach __Jupyter Notebook__ und klicken sie auf __Deinstallieren__.
 
 ## English
 This document is intended as a guide for teachers who want to set up the "JupyterNotebook" plugin in their Moodle course.
@@ -107,9 +107,11 @@ For further information on that regard please refer to the IT-administrator docu
 1. Go to __Site Administration__.
 2. Open __Plugins__.
 3. Click on __Manages Activities__ which can be found under __Activity Modules__.
-4. Find the Jupyter Plugin and click on it to find the settings.
-   ![settingsJupyter](images/settingsJupyter.png)
+4. Find the Jupyter Plugin and click __Settings__.
+   ![settingsJupyter](images/settings.png)
 
 ### Uninstall the Plugin
-1. Go to __Site administration__ > __Plugins__ > __Plugins overview__.
-2. Look for __JupyterNotebook__ and press __Uninstall__.
+1. Go to __Site Administration__.
+2. Open __Plugins__.
+3. Click on __Manages Activities__ which can be found under __Activity Modules__.
+4. Find the Jupyter Plugin and click on __Uninstall__.
