@@ -26,8 +26,10 @@ require(__DIR__.'/../../config.php');
 require_once(__DIR__.'/lib.php');
 require(__DIR__ . '/vendor/autoload.php');
 
+use Firebase\JWT\JWT;
 
 // Moodle specific config.
+global $DB, $PAGE, $USER, $OUTPUT;
 
 // Course module id.
 $id = optional_param('id', 0, PARAM_INT);
@@ -56,65 +58,50 @@ $PAGE->set_context($modulecontext);
 
 // User interface.
 
-use Firebase\JWT\JWT;
-
 // Create id with the user's unique username from Moodle.
 $uniqueid = mb_strtolower($USER->username, "UTF-8");
 
 // Custom key must equal JWT_SECRET in jupyterhub_docker .env!
 $key = 'your-256-bit-secret';
 
-$data = [
+$jwt = JWT::encode([
     "name" => $uniqueid,
     "iat" => time(),
     "exp" => time() + 15
-];
+], $key, 'HS256');
 
-$jwt = JWT::encode($data, $key, 'HS256');
+$jupyter_url = get_config('mod_jupyter', 'jupyterurl');
+$repo = $moduleinstance->repourl;
+$branch = $moduleinstance->branch;
+$file = $moduleinstance->file;
+$git_filelink = gen_git_filelink();
 
-// Get admin settings.
-$url = get_config('mod_jupyter', 'jupyterurl');
-
-$gitpath = gen_link(
-    $moduleinstance->repourl,
-    $moduleinstance->branch,
-    $moduleinstance->file
-);
-
-$jupyterlogin = $url . $gitpath . "&auth_token="  . $jwt;
-
-$templatecontext = [
-    'login' => $jupyterlogin
-];
+$git_reachable = check_url($git_filelink) === 200;
+$jupyter_reachable = check_jupyter($jupyter_url);
 
 echo $OUTPUT->header();
-$giturl = $moduleinstance->repourl . '/' . 'blob/' .  $moduleinstance->branch . '/' . $moduleinstance->file;
-$gitisreachable = check_url($giturl);
 
-$isrechablechable = check_url($jupyterlogin);
-
-if ($gitisreachable && $isrechablechable) {
-    echo $OUTPUT->render_from_template('mod_jupyter/manage', $templatecontext);
+if ($git_reachable && $jupyter_reachable) {
+    echo $OUTPUT->render_from_template('mod_jupyter/manage', [
+        'login' => $jupyter_url . gen_gitpath($repo, $branch, $file) . "&auth_token="  . $jwt
+    ]);
 } else {
     show_error_message();
-    echo $OUTPUT->render_from_template('mod_jupyter/manage_error', $templatecontext);
 }
-echo $OUTPUT->footer();
 
+echo $OUTPUT->footer();
 
 /**
  * Creates nbgitpuller part of the link to the JupyterHub.
- *
- * @param string $repo
- * @param string $branch
- * @param string $file
- * @return string
+ * @return string the formatted path and query parameters for nbgitpuller
  */
-function gen_link(string $repo, string $branch, string $file) : string {
+function gen_gitpath() : string {
+    global $repo, $file, $branch;
 
     if (preg_match("/\/$/", "$repo")) {
         $repo = substr($repo, 0, strlen($repo) - 1);
     }
+
     return '/hub/user-redirect/git-pull?repo=' .
         urlencode($repo) .
         '&urlpath=lab%2Ftree%2F' .
@@ -126,45 +113,64 @@ function gen_link(string $repo, string $branch, string $file) : string {
 }
 
 /**
- * Checks if url is available and return bool accordingly
- * @param string $url The url to check for availability.
- * @return boolean Returns true if url could be reached with acceptable http code (1xx-3xx)
+ * Generates link to file in git repository
+ * @return string example: https://github.com/username/reponame/blob/branch/notebook.ipynb
  */
-function check_url(string $url): bool {
-    $url = str_replace("127.0.0.1", "host.docker.internal", $url);
-    $curl = new curl();
-    $curl->setopt(array('CURLOPT_FOLLOWLOCATION' => true));
-    $curl->setopt(array('CURLOPT_MAXREDIRS' => 100));
-    $html = $curl->get($url);
-    $response = $curl->getResponse();
-    $info = $curl->get_info();
-    $httpcode = $info['http_code'];
-    $errorno = $curl->get_errno();
+function gen_git_filelink() : string {
+    global $repo, $file, $branch;
 
-    if ($httpcode < 400 && $httpcode >= 100) {
-        return true;
-    } else {
-        return false;
+    if (preg_match("/\/$/", "$repo")) {
+        $repo = substr($repo, 0, strlen($repo) - 1);
     }
+
+    return $repo . "/blob/" . $branch . "/" . $file;
 }
+
+/**
+ * Checks if jupyterhub is reachable
+ * @param string $url
+ * @return bool
+ */
+function check_jupyter(string $url) : bool {
+    $http_code = check_url($url);
+
+    if ($http_code !== 401 && strpos($url, "127.0.0.1") !== false) {
+        $http_code = check_url(str_replace("127.0.0.1", "host.docker.internal", $url));
+    }
+
+    return $http_code === 401; // Should return 401 if reachable since auth_token is not set.
+}
+
+/**
+ * Send http request to url and return response status code
+ * @param string $url The url to check for availability.
+ * @return boolean Returns http status code of the request
+ */
+function check_url(string $url) : int {
+    $ch = curl_init($url);
+    @curl_setopt_array( $ch, array(
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_FAILONERROR => true,
+        CURLOPT_RETURNTRANSFER => true
+    ));
+    curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    return $http_code;
+}
+
 
 /**
  * Shows different error messages depending on cause of error
  */
 function show_error_message() {
-    global $isrechablechable, $gitisreachable, $url;
-    switch($isrechablechable){
-        case false:
-            if (!$gitisreachable) {
-                \core\notification::error(get_string('jupyterbotherror', 'jupyter', ['url' => $url]));
-            } else {
-                \core\notification::error(get_string('jupyteradminsettingserror', 'jupyter', ['url' => $url]));
-            }
-            break;
-        case true:
-            if (!$gitisreachable) {
-                \core\notification::error(get_string('jupyterinstancesettingserror', 'jupyter', ['url' => $url]));
-            }
+    global $git_reachable, $jupyter_reachable, $jupyter_url, $git_filelink;
+
+    if (!$jupyter_reachable) {
+        \core\notification::error(get_string('jupyteradminsettingserror', 'jupyter', ['url' => $jupyter_url]));
+    }
+    if (!$git_reachable) {
+        \core\notification::error(get_string('jupyterinstancesettingserror', 'jupyter', ['url' => $git_filelink]));
     }
 }
-
