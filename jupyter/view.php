@@ -138,8 +138,8 @@ function check_jupyter(string $url) : bool {
         $res = check_url(str_replace("127.0.0.1", "host.docker.internal", $url));
     }
 
-    // Check if respose code matches and "x-jupyterhub-version" header is set in response header
-    // response code should be 401 because we didnt pass an auth token
+    // Check if respose code matches and "x-jupyterhub-version" header is set in response header.
+    // Response code should be 401 because we didnt pass an auth token.
     return $res[0] === 401 && $res[1] != "";
 }
 
@@ -152,12 +152,10 @@ function check_url(string $url) : array {
     $client = new GuzzleHttp\Client();
     try {
         $res = $client->get($url);
-    }
-    catch (GuzzleHttp\Exception\RequestException $e) {
+    } catch (GuzzleHttp\Exception\RequestException $e) {
         $res = $e->getResponse();
-    }
-    catch (GuzzleHttp\Exception\ConnectException $e) {
-        return [0,""];
+    } catch (GuzzleHttp\Exception\ConnectException $e) {
+        return [0, ""];
     }
 
     return [
