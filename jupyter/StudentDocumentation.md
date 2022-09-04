@@ -27,6 +27,7 @@ Zum Speichern eines Notebooks kann man entweder oben auf file drücken und dann 
 Falls man ein Notebook neuladen möchte, nachdem man selbst schon Änderungen vorgenommen hat, muss man dieses erst unter anderem Namen speichern.
 Dies kann wieder oben unter dem Reiter file gemacht werden oder mit "Strg + Umschalt +s".\
 Danach muss man das Alte löschen und die reset-Taste unten drücken.\
+![resetButton](images/resetButton.png)
 Wenn man ein Notebook downloaden möchte, klickt man wieder oben auf file und danach auf download. Nun hat man die Datei lokal bei sich auf dem Rechner.
 ![downloadNotebook](images/downloadNotebook.png)
 
@@ -58,5 +59,6 @@ To save a notebook you can either press file at the top and then select it manua
 If you want to reload a notebook after you have already made changes yourself, you have to save it under a different name first.
 This can be done again above under the tab file or with "Ctrl + Shift + s".\
 After that you have to delete the old one and press the reset button at the bottom.\
+![resetButton](images/resetButton.png)
 If you want to download a notebook, click again on file and then on download. Now you have the file locally on your computer.
 ![downloadNotebook](images/downloadNotebook.png)
