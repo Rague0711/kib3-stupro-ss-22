@@ -8,7 +8,8 @@ Außerdem wird erklärt wie Lehrende ein __Jupter Notebook__ einem Kurs hinzufü
 ### Voraussetzungen
 Um dieses Plugin nutzen zu können, ist eine laufende Instanz von JupyterHub erforderlich.\
 Diese sollte zuvor von Ihrem IT-Administrator eingerichtet worden sein.\
-Weitere Informationen dazu finden Sie in der IT-Administrator-Dokumentation.
+Weitere Informationen dazu finden Sie in der IT-Administrator-Dokumentation.\
+Außerdem benötigen Sie einen Admin Moodle Account.
 
 ### Installation des Plugins
 
@@ -21,15 +22,15 @@ Weitere Informationen dazu finden Sie in der IT-Administrator-Dokumentation.
 4.  Klicken Sie auf __Plugins__.
     ![Plugin](images/pluginsDeutsch.png)
 5.  Klicken Sie auf __Plugin installieren__.
-    ![ChoseFile](images/installierenVonPlugin.png)
 6.  Fügen Sie die "jupyter.zip" datei via "Datei auswählen..." oder "drag and drop" hinzu.
+    ![ChoseFile](images/installierenVonPlugin.png)
 7.  Klicken Sie auf den __Plugin installieren__ Button.
 8.  Klicken Sie auf __Weiter__.
-9.  Als nächstes erscheint eine Seite über aktuelle Veröffentlichungsinformtaionen. Scrollen Sie herunter und klicken Sie wieder auf __Weiter__ .
+9.  Als nächstes erscheint eine Seite über aktuelle Veröffentlichungsinformationen. Scrollen Sie herunter und klicken Sie wieder auf __Weiter__.
 10. Nun wird das zu installierende Plugin dargestellt. Um fortzufahren klicken Sie auf __Aktualisierung der Datenbank starten__.
 11. Es sollte eine Erfolgsmeldung über die Installation des Plugins angezeigt werden. Drücken Sie auf __Weiter__ .
 12. URL/IP settings werden angezeigt. Wenn das JupyterHub Docker setup erfolgreich ausgeführt wurde, werden die vordefinierten Einstellungen bereits korrekt sein und Sie können fortfahren.\
-    Falls ihr IT Administrator Änderungen vorgenommen hat bezüglich einer anderen URL, können Sie hier eine neue URL bzw IP und port angeben für den JupyterHub Server.
+    Falls ihr IT-Administrator Änderungen vorgenommen hat bezüglich einer anderen URL, können Sie hier eine neue URL bzw IP und port angeben für den JupyterHub Server.
 13. Klicken Sie auf __Änderungen speichern__ um die Installation des Plugins abzuschließen.
 
 ### Einbindung des Plugins in einen Kurs
@@ -60,40 +61,41 @@ Weitere Informationen dazu finden Sie in der IT-Administrator-Dokumentation.
 4. Suchen Sie nach __Jupyter Notebook__ und klicken sie auf __Deinstallieren__.
 
 ## English
-This document is intended as a guide for teachers who want to set up the "JupyterNotebook" plugin in their Moodle course.
+This document is intended as a guide for teachers who want to set up the __JupyterNotebook__ plugin in their Moodle course.
 It shows how to install and uninstall the plugin.
-Furthermore it explains how instructors can add a JupyterNotebook to a course and how to set specific preferences.
+Furthermore it explains how instructors can add a __JupyterNotebook__ to a course and how to set specific preferences.
 
 ### Prerequisites
 To make use of this plugin a running instance of JupyterHub is necessary.\
 This should have been set up by your IT-administrator beforehand.\
-For further information on that regard please refer to the IT-administrator documentation.
+For further information on that regard please refer to the IT-administrator documentation.\
+Also you need an admin Moodle account.
 
 ### Install Plugin
 1.  Get a zip version the directory [Jupyter](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyter).\
     The zip file has to be named "jupyter" as well.
     ![JupyterZip](images/createZipFile.png)
-2.  Open and login to Moodle. You have to log in with an adminstrator account to set the following preferences.
+2.  Open and log in to Moodle. You have to log in with an adminstrator account to set the following preferences.
 3.  Click on __Site administration__.
     ![SiteAdministration](images/siteAdmin.png)
 4.  Click on __Plugins__.
     ![Plugin](images/plugin.png)
 5.  Click on __Install Plugins__.
-    ![ChoseFile](images/choseFile.png)
 6.  Add the "jupyter.zip" file via "Choose a file..." or "drag and drop".
+    ![ChoseFile](images/choseFile.png)
 7.  Click on __"Install plugin from the ZIP file"__ button to install the plugin.
 8.  Click on __Continue__.
 9.  A page about current release information will appear. Scroll down and click on __Continue__ again.
 10. The next page displays the plugin you are about to install. To install the plugin, click on __Upgrade Moodle datebase now__.
 11. The next page should confirm a successful installation. Click on __Continue__ to progress further.
 12. Now the URL/IP settings of the plugin show. If the provided JupyterHub Docker setup is set up and used, the default values will already be correct.\
-    However, if your IT-administrator made changes to the configuration of the URL/IP you can enter a new URL or IP and the port of the JupyterHub server.\
+    However, if your IT-administrator made changes to the configuration of the URL/IP you can enter a new URL or IP and the port of the JupyterHub server.
 13. Click on __Save changes__ to finish the installation of the plugin.
 
 ### Add plugin to course
 1. Go to __Site Home__.
 2. Click on the course you want to use the plugin in.
-3. __Turn editing on__ on the top right.
+3. __Turn editing on__ at the top right.
    ![courseEditingOn](images/courseEditingOn.png)
 4. Click on __"Add an activity or resource"__ and add the __Jupyter Notebook__ plugin as an activity.
    ![addActivity](images/addActivity.png)
