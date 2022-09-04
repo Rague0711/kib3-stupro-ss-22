@@ -72,6 +72,7 @@ For further information on that regard please refer to the IT-administrator docu
 ### Install Plugin
 1.  Get a zip version the directory [Jupyter](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyter).\
     The zip file has to be named "jupyter" as well.
+    ![JupyterZip](images/createZipFile.png)
 2.  Open and login to Moodle. You have to log in with an adminstrator account to set the following preferences.
 3.  Click on __Site administration__.
     ![SiteAdministration](images/siteAdmin.png)
