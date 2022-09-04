@@ -29,7 +29,7 @@ Außerdem benötigen Sie einen Admin Moodle Account.
 9.  Als nächstes erscheint eine Seite über aktuelle Veröffentlichungsinformationen. Scrollen Sie herunter und klicken Sie wieder auf __Weiter__.
 10. Nun wird das zu installierende Plugin dargestellt. Um fortzufahren klicken Sie auf __Aktualisierung der Datenbank starten__.
 11. Es sollte eine Erfolgsmeldung über die Installation des Plugins angezeigt werden. Drücken Sie auf __Weiter__ .
-12. URL/IP settings werden angezeigt. Wenn das JupyterHub Docker setup erfolgreich ausgeführt wurde, werden die vordefinierten Einstellungen bereits korrekt sein und Sie können fortfahren.\
+12. URL/IP settings werden angezeigt. Wenn das JupyterHub setup erfolgreich ausgeführt wurde, werden die vordefinierten Einstellungen bereits korrekt sein und Sie können fortfahren.\
     Falls ihr IT-Administrator Änderungen vorgenommen hat bezüglich einer anderen URL, können Sie hier eine neue URL bzw IP und port angeben für den JupyterHub Server.
 13. Klicken Sie auf __Änderungen speichern__ um die Installation des Plugins abzuschließen.
 
@@ -88,7 +88,7 @@ Also you need an admin Moodle account.
 9.  A page about current release information will appear. Scroll down and click on __Continue__ again.
 10. The next page displays the plugin you are about to install. To install the plugin, click on __Upgrade Moodle datebase now__.
 11. The next page should confirm a successful installation. Click on __Continue__ to progress further.
-12. Now the URL/IP settings of the plugin show. If the provided JupyterHub Docker setup is set up and used, the default values will already be correct.\
+12. Now the URL/IP settings of the plugin show. If the provided JupyterHub setup is set up and used, the default values will already be correct.\
     However, if your IT-administrator made changes to the configuration of the URL/IP you can enter a new URL or IP and the port of the JupyterHub server.
 13. Click on __Save changes__ to finish the installation of the plugin.
 
