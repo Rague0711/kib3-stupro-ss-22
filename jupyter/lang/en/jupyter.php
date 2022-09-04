@@ -39,9 +39,11 @@ $string['file'] = 'Notebook file to open';
 
 $string['jupyter:addinstance'] = 'Add a new Jupyter Activity';
 
-$string['jupyteradminsettingserror'] = '<strong>Error</strong><br>Sorry, your Jupyter Notebook could not be loaded.<br>Please try contacting an admin and provide the following information to help resolve this issue.<br><br><strong>Cause:</strong> The provided URL ({$a->url}) is not available or does not lead to a JupyterHub.<br>The following steps can help to resolve this issue:<br>1.) Check the <i>Admin Settings</i> and make sure the URL matches the URL of your JupyterHub.';
+$string['errorheading'] = '<strong>Error</strong><br>Sorry, your Jupyter Notebook (<i>"{$a->instancename}"</i>) could not be loaded.<br>Please try contacting an admin.';
 
-$string['jupyterinstancesettingserror'] = '<strong>Error</strong><br>Sorry, your Jupyter Notebook could not be loaded.<br>Please try contacting an admin and provide the following information to help resolve this issue.<br><br><strong>Cause:</strong> The provided Git Repository URL ({$a->url}) is not available or does not lead to a Jupyter Notebook file.<br>The following steps can help to resolve this issue:<br>1.) Check the <i>Activity Settings</i>  and make sure <i>Git Repository URL</i>, <i>Branch</i> and <i>Notebook file to open</i> are set correctly.';
+$string['adminsettingserror'] = '<strong>Cause:</strong> The provided URL (<i>"{$a->url}"</i>) is not available or does not lead to a JupyterHub.<br>Check the <i>Admin Settings</i> and make sure the URL matches the URL of your JupyterHub.';
+
+$string['instancesettingserror'] = '<strong>Cause:</strong> The provided Git Repository URL (<i>"{$a->url}"</i>) is not available or does not lead to a Jupyter Notebook file.<br>Check the <i>Activity Settings</i>  and make sure <i>Git Repository URL</i>, <i>Branch</i> and <i>Notebook file to open</i> are set correctly.';
 
 // Admin plugin settings.
 // General.

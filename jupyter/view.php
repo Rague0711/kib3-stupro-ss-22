@@ -168,12 +168,14 @@ function check_url(string $url) : array {
  * Shows different error messages depending on cause of error
  */
 function show_error_message() {
-    global $gitreachable, $jupyterreachable, $jupyterurl, $gitfilelink;
+    global $gitreachable, $jupyterreachable, $jupyterurl, $gitfilelink, $moduleinstance;
+
+    \core\notification::error(get_string('errorheading', 'jupyter', ['instancename' => $moduleinstance->name]));
 
     if (!$jupyterreachable) {
-        \core\notification::error(get_string('jupyteradminsettingserror', 'jupyter', ['url' => $jupyterurl]));
+        \core\notification::error(get_string('adminsettingserror', 'jupyter', ['url' => $jupyterurl]));
     }
     if (!$gitreachable) {
-        \core\notification::error(get_string('jupyterinstancesettingserror', 'jupyter', ['url' => $gitfilelink]));
+        \core\notification::error(get_string('instancesettingserror', 'jupyter', ['url' => $gitfilelink]));
     }
 }
