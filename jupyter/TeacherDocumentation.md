@@ -23,7 +23,7 @@ Außerdem benötigen Sie einen Admin Moodle Account.
     ![Plugin](images/pluginsDeutsch.png)
 5.  Klicken Sie auf __Plugin installieren__.
 6.  Fügen Sie die "jupyter.zip" datei via "Datei auswählen..." oder "drag and drop" hinzu.
-    ![ChoseFile](images/installierenVonPlugin.png)
+    ![ChooseFile](images/installierenVonPlugin.png)
 7.  Klicken Sie auf den __Plugin installieren__ Button.
 8.  Klicken Sie auf __Weiter__.
 9.  Als nächstes erscheint eine Seite über aktuelle Veröffentlichungsinformationen. Scrollen Sie herunter und klicken Sie wieder auf __Weiter__.
@@ -82,7 +82,7 @@ Also you need an admin Moodle account.
     ![Plugin](images/plugin.png)
 5.  Click on __Install Plugins__.
 6.  Add the "jupyter.zip" file via "Choose a file..." or "drag and drop".
-    ![ChoseFile](images/choseFile.png)
+    ![ChooseFile](images/chooseFile.png)
 7.  Click on __"Install plugin from the ZIP file"__ button to install the plugin.
 8.  Click on __Continue__.
 9.  A page about current release information will appear. Scroll down and click on __Continue__ again.
