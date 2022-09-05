@@ -6,14 +6,14 @@ Es wird dargestellt wie das Plugin installiert und deinstalliert werden kann.\
 Außerdem wird erklärt wie Lehrende ein __Jupter Notebook__ einem Kurs hinzufügen können sowie spezifische Einstellungen vornehmen können.
 
 ### Voraussetzungen
-Um dieses Plugin nutzen zu können, ist eine laufende Instanz von JupyterHub erforderlich.\
+Um dieses Plugin nutzen zu können ist eine laufende Instanz von JupyterHub erforderlich.\
 Diese sollte zuvor von Ihrem IT-Administrator eingerichtet worden sein.\
 Weitere Informationen dazu finden Sie in der IT-Administrator-Dokumentation.\
 Außerdem benötigen Sie einen Admin Moodle Account.
 
 ### Installation des Plugins
 
-1.  Erstelle eine Zip-Datei vom Jupyter Verzeichnis [Jupyter](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyter). \
+1.  Erstelle eine Zip-Datei vom Verzeichnis [Jupyter](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyter). \
     Die Zip-Datei sollte ebenfalls "jupyter" genannt werden.
     ![JupyterZip](images/jupyterZipDeutsch.png)
 2.  Öffnen Sie Moodle und melden Sie sich mit einem Administrator Profil an um weitere Einstellungen im Verlauf dieser Anleitung vorzunehmen.
