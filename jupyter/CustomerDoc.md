@@ -58,7 +58,7 @@ To use the plugin, a running instance of JupyterHub is needed (by default, it is
 4. Go to __Plugins__.
    ![Plugin](images/plugin.png)
 5. Click on __Install Plugins__.
-   ![ChoseFile](images/choseFile.png)
+   ![ChooseFile](images/chooseFile.png)
 6. Add the zip version via "Choose a file..." or "drag and drop".
 7. Click on __"Install plugin from the ZIP file"__ button to install the plugin.
 8. Click on __Continue__.
