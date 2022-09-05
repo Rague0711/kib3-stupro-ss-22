@@ -21,15 +21,15 @@ Diese bietet den Zugriff auf verschiedene __Jupyter Notebooks__.\
 ### Funktionen in einem Notebook
 Nachdem das richtige Notebook ausgewählt wurde und man zu einer Aufgabe kommt, in der ein Code ausgeführt werden muss, kann dies
 mit dem kleinen Dreieck oben gemacht werden. 
-![playButton](images/playButton.png)
+![playButtonDeutsch](images/runButtonDeutsch.png)
 Zum Speichern eines Notebooks kann man entweder oben auf file drücken und dann manuell auswählen oder "Strg + s" drücken.\
-![saveNotebook](images/saveNotebook.png)
+![saveNotebookDeutsch](images/saveNotebookDeutsch.png)
 Falls man ein Notebook neuladen möchte, nachdem man selbst schon Änderungen vorgenommen hat, muss man dieses erst unter anderem Namen speichern.
 Dies kann wieder oben unter dem Reiter file gemacht werden oder mit "Strg + Umschalt +s".\
 Danach muss man das Alte löschen und die reset-Taste unten drücken.\
 ![resetButton](images/resetButton.png)
 Wenn man ein Notebook downloaden möchte, klickt man wieder oben auf file und danach auf download. Nun hat man die Datei lokal bei sich auf dem Rechner.
-![downloadNotebook](images/downloadNotebook.png)
+![downloadNotebookDeutsch](images/downloadNotebookDeutsch.png)
 
 
 ## English
@@ -53,7 +53,7 @@ This provides access to various __Jupyter notebooks__.
 ### Functions in a notebook
 After the correct notebook has been selected and you come to a task where some code needs to be executed, this can be
  done with the small triangle at the top.
-![playButton](images/playButton.png)
+![playButton](images/runButton.png)
 To save a notebook you can either press file at the top and then select it manually or press "Ctrl + s".\
 ![saveNotebook](images/saveNotebook.png)
 If you want to reload a notebook after you have already made changes yourself, you have to save it under a different name first.
