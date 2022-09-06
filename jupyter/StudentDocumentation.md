@@ -7,8 +7,7 @@ Die Funktionen die innerhalb eines __Jupyter Notebooks__ ausgeführt werden kön
 
 ### Voraussetzungen
 Die erste Voraussetzung ist, dass der Schüler ein Moodle Account besitzt.\
-Zudem sollte er dem jeweiligen Kurs zugewiesen sein. Dies sollte vom Lehrer vorgenommen werden.\
-Weitere Informationen dazu finden Sie in der Lehrer Dokumentation.
+Zudem sollte er dem jeweiligen Kurs zugewiesen sein. Dies sollte vom Lehrer vorgenommen werden.
 
 ### Öffnen eines Jupyter Notebooks
 Nachdem man sich angemeldet hat, kommt man auf dem Dashboard raus.
@@ -22,13 +21,13 @@ Diese bietet den Zugriff auf verschiedene __Jupyter Notebooks__.\
 Nachdem das richtige Notebook ausgewählt wurde und man zu einer Aufgabe kommt, in der ein Code ausgeführt werden muss, kann dies
 mit dem kleinen Dreieck oben gemacht werden. 
 ![playButtonDeutsch](images/runButtonDeutsch.png)
-Zum Speichern eines Notebooks kann man entweder oben auf file drücken und dann manuell auswählen oder "Strg + s" drücken.\
+Zum Speichern eines Notebooks kann man entweder oben auf File drücken und dann manuell auswählen oder "Strg + s" drücken.\
 ![saveNotebookDeutsch](images/saveNotebookDeutsch.png)
 Falls man ein Notebook neuladen möchte, nachdem man selbst schon Änderungen vorgenommen hat, muss man dieses erst unter anderem Namen speichern.
-Dies kann wieder oben unter dem Reiter file gemacht werden oder mit "Strg + Umschalt +s".\
-Danach muss man das Alte löschen und die reset-Taste unten drücken.\
-![resetButton](images/resetButton.png)
-Wenn man ein Notebook downloaden möchte, klickt man wieder oben auf file und danach auf download. Nun hat man die Datei lokal bei sich auf dem Rechner.
+Dies kann wieder oben unter dem Reiter File gemacht werden oder mit "Strg + Umschalt +s".\
+Danach muss man das Alte löschen und die Zurücksetzen-Taste unten drücken.\
+![resetButton](images/resetButtonDeutsch.png)
+Wenn man ein Notebook herunterladen möchte, klickt man wieder oben auf File und danach auf Herunterladen. Nun hat man die Datei lokal bei sich auf dem Rechner.
 ![downloadNotebookDeutsch](images/downloadNotebookDeutsch.png)
 
 
@@ -43,8 +42,7 @@ The functions that can be performed within a __Jupyter Notebook__ are also repre
 
 ### Prerequisites
 The first requirement is that the student has a Moodle account.\
-In addition, he should be assigned to the respective course. This should be done by the teacher.\
-For more information, please refer to the teacher documentation.
+In addition, he should be assigned to the respective course. This should be done by the teacher.
 
 ### Opening a Jupyter Notebook
 After logging in, you come out on the dashboard.
