@@ -32,6 +32,10 @@ Wenn man ein Notebook downloaden möchte, klickt man wieder oben auf file und da
 ![downloadNotebookDeutsch](images/downloadNotebookDeutsch.png)
 
 
+Bei weiteren Fragen kommen Sie [hier](https://jupyter-notebook.readthedocs.io/en/stable/) auf die offizielle Juypter Notebook Dokumentation.
+
+
+
 ## English
 This document is intended as a guide for students who want to use the __Jupyter Notebook__ plugin in their Moodle course.\
 It shows how a student can access their course and the __Jupyter Notebooks__ located there.\
@@ -48,7 +52,7 @@ Here you click on the home page on the left, where you will see the courses avai
 There you click on the right course. If you get an error message
 that you have not yet been assigned to this course, please contact the respective course instructor.
 You can then click on the correct activity in that course.\
-This provides access to various __Jupyter notebooks__.
+This provides access to various __Jupyter Notebooks__.
 
 ### Functions in a notebook
 After the correct notebook has been selected and you come to a task where some code needs to be executed, this can be
@@ -62,3 +66,5 @@ After that you have to delete the old one and press the reset button at the bott
 ![resetButton](images/resetButton.png)
 If you want to download a notebook, click again on file and then on download. Now you have the file locally on your computer.
 ![downloadNotebook](images/downloadNotebook.png)
+
+For further questions, click [here](https://jupyter-notebook.readthedocs.io/en/stable/) to get the official Juypter Notebook documentation.
