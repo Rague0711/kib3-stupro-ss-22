@@ -1,7 +1,30 @@
 
 ## Deutsch
+
+### Voraussetzungen
+Damit das Plugin funktioniert, ist ein JupyterHub-Server erforderlich. Im Ordner [`jupyterhub_docker`](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyterhub_docker) befindet sich ein einfaches Setup, das den Anforderungen entspricht; dafür wird Docker benötigt (eine detaillierte Installationsanleitung finden Sie [hier](https://docs.docker.com/engine/install/)).
+
+#### Setup mit Docker
+1.  Stellen Sie sicher, dass Docker installiert und gestartet ist (andernfalls funktioniert Schritt 4 nicht).
+2.  Laden sie den Ordner `jupyterhub_docker` herunter und nehmen Sie folgende Änderungen vor:
+    - Fügen Sie die URL Ihres Moodle-Servers in der Datei __jupyterhub_config.py__ (im Ordner `jupyterhub`) zur Attribut-Liste der 'Content-Security-Policy' (Zeile 33)  hinzu.
+    - Fügen Sie die URL Ihres Moodle-Servers in der Datei __jupyter_notebook_config.py__ (im Ordner `jupyterlab`) zur Attribut-Liste der 'Content-Security-Policy' (Zeile 28) hinzu.
+    - Setzen Sie in der Datei __.env__ ein *sicheres* Secret für die Authentifizierung; eine Möglichkeit für das Generieren eines sicheren Secrets befindet sich in der Datei selbst (dieses Secret wird auch bei der Installation des Plugins benötigt).
+3.  Öffnen Sie ein Terminal und navigieren Sie zum Ordner `jupyterhub_docker`.
+4.  Führen Sie folgende Befehle aus:
+    ``` shell
+    docker compose build
+    docker-compose up -d
+    ```
+5.  Der Server ist nun erreichbar unter 127.0.0.1:8000 bzw. 127.0.0.1:8081 (die Ports können in der Datei __docker-compose.yml__ angepasst werden); hier bekommen Sie allerdings eine '404 Unauthorized'-Antwort.
+6.  Zum Testen können Sie [hier](https://jwt.io/#debugger-io) einen JSON Web Token generieren; dafür müssen Sie 'your-256-bit-secret' zum von Ihnen gesetzen Secret ändern. Anschließend sollten Sie den Server unter 127.0.0.1:8000/?auth_token=[Ihr Token] (ohne die eckigen Klammern) erreichen können und ein Notebook sollte erzeugt werden.
+
+#### Setup ohne Docker
+[Hier](https://jupyterhub.readthedocs.io/en/stable/) finden Sie eine ausführliche Dokumentation zu verschiedenen Möglichkeiten, einen JupyterHub-Server aufzusetzen (unter anderem die bekanntesten Distributionen [The Littlest JupyterHub](https://tljh.jupyter.org/en/latest/) für bis zu 100 Nutzer und [Zero to JupyterHub](https://zero-to-jupyterhub.readthedocs.io/en/latest/) für mehr Nutzer). Für diesen Anwendungsfall ist wichtig, dass die in diesem Projekt bereitgestellten Konfigurations-Dateien (__jupyterhub_config.py__ und __jupyter_notebook_config.py__) und die Environment-Datei (__.env__) übernommen werden.
+
+
 ### Installation des Plugins
-1.  Erstelle eine Zip-Datei vom Verzeichnis [Jupyter](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyter). \
+1.  Erstellen Sie eine Zip-Datei vom Verzeichnis [Jupyter](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyter). \
     Die Zip-Datei sollte ebenfalls "jupyter" genannt werden.
     ![JupyterZip](images/jupyterZipDeutsch.png)
 2.  Öffnen Sie Moodle und melden Sie sich mit einem Administrator Profil an um weitere Einstellungen im Verlauf dieser Anleitung vorzunehmen.
@@ -34,7 +57,31 @@
 3. Klicken Sie auf __Übersicht__ unter __Aktivitäten__.
 4. Suchen Sie nach __Jupyter Notebook__ und klicken sie auf __Deinstallieren__.
 
+
+
 ## English
+
+### Prerequisites
+For the plugin to work, a JupyterHub server is necessary. The folder [`jupyterhub_docker`](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyterhub_docker) contains an easy setup that fulfills the plugin's requirements; to utilize it, Docker is required (a detailed installation guide can be found [here](https://docs.docker.com/engine/install/)).
+
+#### Setup with Docker
+1.  Make sure Docker is installed correctly and running (otherwise, step 4 will not work).
+2.  Download the folder `jupyterhub_docker` and make the following changes:
+    - Add the URL of your Moodle server to the list of URLs of the 'Content-Security-Policy' attribute in the file __jupyterhub_config.py__ (within the `jupyterhub` folder).
+    - Add the URL of your Moodle server to the list of URLs of the 'Content-Security-Policy' attribute in the file __jupyter_notebook_config.py__ (within the `jupyterlab` folder).
+    - Set a *secure* secret for authentication in the __.env__ file; one possibility to generate a secure secret is provided within the file itself (this secret is also required when installing the plugin).
+3.  Open a terminal and navigate to the `jupyterhub_docker` folder.
+4.  Execute the following commands:
+    ``` shell
+    docker compose build
+    docker-compose up -d
+    ```
+5.  The server is now accessible via 127.0.0.1:8000 or 127.0.0.1:8081 respectively (you can change the ports in the __docker-compose.yml__ file), but you will recieve a '401 unauthorized' response.
+6.  To test whether everything is working properly, you can generate a JSON web token [here](https://jwt.io/#debugger-io); you need to replace 'your-256-bit-secret' with the secret you set in step 2. Afterwards, you should be able to reach the server via 127.0.0.1:8000/?auth_token=[insert your token] (without the square brackets) and a notebook should be spawned.
+
+#### Setup ohne Docker
+You can find a detailed documentation on different possibilities for how to run a JupyterHub server [here](https://jupyterhub.readthedocs.io/en/stable/) (among others, it features the popular distributions [The Littlest JupyterHub](https://tljh.jupyter.org/en/latest/) for up to 100 users, and [Zero to JupyterHub](https://zero-to-jupyterhub.readthedocs.io/en/latest/) for more users). In this case, it is important that you use the configuration files (__jupyterhub_config.py__ and __jupyter_notebook_config.py__) and the environment file (__.env__) that are provided in this project.
+
 ### Install Plugin
 1.  Get a zip version the directory [Jupyter](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyter).\
     The zip file has to be named "jupyter" as well.
