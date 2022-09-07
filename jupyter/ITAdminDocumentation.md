@@ -4,7 +4,7 @@
 
 ### Voraussetzungen
 Damit das Plugin funktioniert, ist ein JupyterHub-Server erforderlich. Sollte dieser noch nicht vorhanden sein, gibt es mehrere Möglichkeiten, diesen aufzusetzen:
-1.  Mit Docker (eine detaillierte Installationsanleitung finden Sie [hier](https://docs.docker.com/engine/install/)) und dem bereitgestellten Setup im Ordner [`jupyterhub_docker`](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyterhub_docker) (siehe [Setup mit Docker](#mitDocker)).
+1.  Mit Docker (eine detaillierte Installationsanleitung finden Sie [hier](https://docs.docker.com/engine/install/)) und dem bereitgestellten Setup in der `jupyterhub_docker.zip` file (siehe [Setup mit Docker](#mitDocker)).
 2.  Ohne Docker unter Verwendung der bereitgestellten Konfigurationsdateien (siehe [Setup ohne Docker](#ohneDocker)).
 
 #### <a name="mitDocker"></a>Setup mit Docker
@@ -19,7 +19,7 @@ Damit das Plugin funktioniert, ist ein JupyterHub-Server erforderlich. Sollte di
     docker compose build
     docker-compose up -d
     ```
-5.  Der Server ist nun erreichbar unter 127.0.0.1:8000 bzw. 127.0.0.1:8081 (die Ports können in der Datei __docker-compose.yml__ angepasst werden); hier bekommen Sie allerdings eine '404 Unauthorized'-Antwort.
+5.  Der Server ist nun erreichbar unter 127.0.0.1:8000 bzw. 127.0.0.1:8081 (die Ports können in der Datei __docker-compose.yml__ angepasst werden); hier bekommen Sie allerdings eine '401 Unauthorized'-Antwort.
 6.  Zum Testen können Sie [hier](https://jwt.io/#debugger-io) einen JSON Web Token generieren; dafür müssen Sie 'your-256-bit-secret' zum von Ihnen gesetzen Secret ändern. Anschließend sollten Sie den Server unter 127.0.0.1:8000/?auth_token=[Ihr Token] (ohne die eckigen Klammern) erreichen können und ein Notebook sollte erzeugt werden.
 
 #### <a name="ohneDocker"></a>Setup ohne Docker
