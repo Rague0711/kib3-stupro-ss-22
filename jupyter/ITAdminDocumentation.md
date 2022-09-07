@@ -22,7 +22,7 @@ Damit das Plugin funktioniert, ist ein JupyterHub-Server erforderlich. Sollte di
 6.  Zum Testen können Sie [hier](https://jwt.io/#debugger-io) einen JSON Web Token generieren; dafür müssen Sie 'your-256-bit-secret' zum von Ihnen gesetzen Secret ändern. Anschließend sollten Sie den Server unter 127.0.0.1:8000/?auth_token=[Ihr Token] (ohne die eckigen Klammern) erreichen können und ein Notebook sollte erzeugt werden.
 
 #### <a name="ohneDocker"></a>Setup ohne Docker
-[Hier](https://jupyterhub.readthedocs.io/en/stable/) finden Sie eine ausführliche Dokumentation zu verschiedenen Möglichkeiten, einen JupyterHub-Server aufzusetzen (unter anderem die bekanntesten Distributionen [The Littlest JupyterHub](https://tljh.jupyter.org/en/latest/) für bis zu 100 Nutzer und [Zero to JupyterHub](https://zero-to-jupyterhub.readthedocs.io/en/latest/) für mehr Nutzer). Für diesen Anwendungsfall ist wichtig, dass die in diesem Projekt bereitgestellten Konfigurationsdateien (__jupyterhub_config.py__ und __jupyter_notebook_config.py__) und die Environment-Datei (__.env__) übernommen werden.
+[Hier](https://jupyterhub.readthedocs.io/en/stable/) finden Sie eine ausführliche Dokumentation zu verschiedenen Möglichkeiten, einen JupyterHub-Server aufzusetzen (unter anderem die bekanntesten Distributionen [The Littlest JupyterHub](https://tljh.jupyter.org/en/latest/) für bis zu 100 Nutzer und [Zero to JupyterHub](https://zero-to-jupyterhub.readthedocs.io/en/latest/) für mehr Nutzer). Für diesen Anwendungsfall ist wichtig, dass die in diesem Projekt bereitgestellten Konfigurationsdateien (__jupyterhub_config.py__ und __jupyter_notebook_config.py__) und die Environment-Datei (__.env__) übernommen werden. Achten Sie außerdem darauf, diese Dateien wie in Schritt 2 des [Setups mit Docker](#mitDocker) zu modifizieren.
 
 
 ### Installation des Plugins
@@ -42,8 +42,7 @@ Damit das Plugin funktioniert, ist ein JupyterHub-Server erforderlich. Sollte di
 9.  Als Nächstes erscheint eine Seite über aktuelle Veröffentlichungsinformationen. Scrollen Sie herunter und klicken Sie wieder auf __Weiter__.
 10. Nun wird das zu installierende Plugin dargestellt. Um fortzufahren klicken Sie auf __Aktualisierung der Datenbank starten__.
 11. Es sollte eine Erfolgsmeldung über die Installation des Plugins angezeigt werden. Drücken Sie auf __Weiter__.
-12. URL/IP settings werden angezeigt. Wenn das JupyterHub setup erfolgreich ausgeführt wurde, werden die vordefinierten Einstellungen bereits korrekt sein und Sie können fortfahren.\
-    Falls ihr IT-Administrator Änderungen vorgenommen hat bezüglich einer anderen URL, können Sie hier eine neue URL bzw IP und port angeben für den JupyterHub Server.
+12. Jetzt werden die Plugin-Einstellungen angezeigt. Hier müssen Sie die URL des JupyterHub-Servers, den Sie verwenden wollen, sowie das zuvor gesetzte Secret angegeben werden.
 13. Klicken Sie auf __Änderungen speichern__, um die Installation des Plugins abzuschließen.
 
 ### Plugin-Einstellungen
@@ -84,27 +83,26 @@ For the plugin to work, a JupyterHub server is required. In case you do not have
 6.  To test whether everything is working properly, you can generate a JSON web token [here](https://jwt.io/#debugger-io); you need to replace 'your-256-bit-secret' with the secret you set in step 2. Afterwards, you should be able to reach the server via 127.0.0.1:8000/?auth_token=[insert your token] (without the square brackets) and a notebook should be spawned.
 
 #### <a name="withoutDocker"></a>Setup without Docker
-You can find a detailed documentation on different possibilities for how to run a JupyterHub server [here](https://jupyterhub.readthedocs.io/en/stable/) (among others, it features the popular distributions [The Littlest JupyterHub](https://tljh.jupyter.org/en/latest/) for up to 100 users, and [Zero to JupyterHub](https://zero-to-jupyterhub.readthedocs.io/en/latest/) for more users). In this case, it is important that you use the configuration files (__jupyterhub_config.py__ and __jupyter_notebook_config.py__) and the environment file (__.env__) that are provided in this project.
+You can find a detailed documentation on different possibilities for how to run a JupyterHub server [here](https://jupyterhub.readthedocs.io/en/stable/) (among others, it features the popular distributions [The Littlest JupyterHub](https://tljh.jupyter.org/en/latest/) for up to 100 users, and [Zero to JupyterHub](https://zero-to-jupyterhub.readthedocs.io/en/latest/) for more users). In this case, it is important that you use the configuration files (__jupyterhub_config.py__ and __jupyter_notebook_config.py__) and the environment file (__.env__) that are provided in this project. Additionally, make sure to modify the files as described in step 2 of the [setup with docker](#withDocker). 
 
 ### Install Plugin
-1.  Get a zip version the directory [Jupyter](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyter).\
+1. Get a zip version the directory [Jupyter](https://sopra.informatik.uni-stuttgart.de/kib3-student-projects/kib3-stupro-ss-22/-/tree/main/jupyter).\
     The zip file has to be named "jupyter" as well.
     ![JupyterZip](images/createZipFile.png)
-2.  Open and log in to Moodle. You have to log in with an administrator account to set the following preferences.
-3.  Click on __Site administration__.
+2. Open and log in to Moodle. You have to log in with an administrator account to set the following preferences.
+3. Click on __Site administration__.
     ![SiteAdministration](images/siteAdmin.png)
-4.  Click on __Plugins__.
+4. Click on __Plugins__.
     ![Plugin](images/plugin.png)
-5.  Click on __Install Plugins__.
-6.  Add the "jupyter.zip" file via "Choose a file..." or "drag and drop".
+5. Click on __Install Plugins__.
+6. Add the "jupyter.zip" file via "Choose a file..." or "drag and drop".
     ![ChooseFile](images/chooseFile.png)
-7.  Click on __"Install plugin from the ZIP file"__ button to install the plugin.
-8.  Click on __Continue__.
-9.  A page about current release information will appear. Scroll down and click on __Continue__ again.
+7. Click on __"Install plugin from the ZIP file"__ button to install the plugin.
+8. Click on __Continue__.
+9. A page about current release information will appear. Scroll down and click on __Continue__ again.
 10. The next page displays the plugin you are about to install. To install the plugin, click on __Upgrade Moodle datebase now__.
 11. The next page should confirm a successful installation. Click on __Continue__ to progress further.
-12. Now the URL/IP settings of the plugin show. If the provided JupyterHub setup is set up and used, the default values will already be correct.\
-    However, if your IT-administrator made changes to the configuration of the URL/IP you can enter a new URL or IP and the port of the JupyterHub server.
+12. Now the plugin settings show up. Here, you need to enter the URL of the JupyterHub server as well as the secret you generated and set before.
 13. Click on __Save changes__ to finish the installation of the plugin.
 
 ### Plugin Settings
