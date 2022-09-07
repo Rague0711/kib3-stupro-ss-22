@@ -1,3 +1,4 @@
+# IT-Administrator Dokumentation / IT Administrator documentation
 
 ## Deutsch
 
@@ -8,10 +9,10 @@ Damit das Plugin funktioniert, ist ein JupyterHub-Server erforderlich. Sollte di
 
 #### <a name="mitDocker"></a>Setup mit Docker
 1.  Stellen Sie sicher, dass Docker installiert und gestartet ist (andernfalls funktioniert Schritt 4 nicht).
-2.  Laden sie den Ordner `jupyterhub_docker` herunter und nehmen Sie folgende Änderungen vor:
+2.  Laden Sie den Ordner `jupyterhub_docker` herunter und nehmen Sie folgende Änderungen vor:
     - Fügen Sie die URL Ihres Moodle-Servers in der Datei __jupyterhub_config.py__ (im Ordner `jupyterhub`) zur Attribut-Liste der 'Content-Security-Policy' (Zeile 33) hinzu.
     - Fügen Sie die URL Ihres Moodle-Servers in der Datei __jupyter_notebook_config.py__ (im Ordner `jupyterlab`) zur Attribut-Liste der 'Content-Security-Policy' (Zeile 28) hinzu.
-    - Setzen Sie in der Datei __.env__ ein *sicheres* Secret für die Authentifizierung (Zeile 15); eine Möglichkeit für das Generieren eines sicheren Secrets befindet sich in der Datei selbst (dieses Secret wird auch bei der Installation des Plugins benötigt).
+    - Setzen Sie in der Datei __.env__ ein *sicheres* Secret für die Authentifizierung (Zeile 14); eine Möglichkeit für das Generieren eines sicheren Secrets befindet sich in der Datei selbst (dieses Secret wird auch bei der Installation des Plugins benötigt).
 3.  Öffnen Sie ein Terminal und navigieren Sie zum Ordner `jupyterhub_docker`.
 4.  Führen Sie folgende Befehle aus:
     ``` shell
