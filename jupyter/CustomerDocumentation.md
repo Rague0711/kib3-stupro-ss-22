@@ -23,7 +23,7 @@ Für das Plugin ist es egal welche der beiden Optionen Sie oben gewählt haben,
 denn in beiden Fällen müssen Sie die `Jupyter.zip` Datei mitliefern.\
 Der andere wichtige Part für das Plugin ist die Git Repository URL, der Branch sowie das zu 
 öffnende Notebook.\
-Diese Infos sind relevant für die Schulen.
+Diese Infos sind relevant für die Lehrer und Lehrerinnen.
 
 
 
