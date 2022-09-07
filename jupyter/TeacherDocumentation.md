@@ -20,7 +20,7 @@ Weitere Informationen dazu finden Sie in der IT-Administrator Dokumentation.
    ![jupyterPlugin](images/jupyterNotebookWaehlen.png)
 5. Geben Sie einen beliebigen Namen für ihre Jupyter Instanz an.\
     Sie sollten einen Link zu einem Git-Respository (z. B. [GitLab](https://gitlab.com/) oder [GitHub](https://github.com/)) erhalten haben, indem die zu bearbeitenden Jupyter  Notebooks hinterlegt sind.\
-    Nun geben Sie in die dafür vorgesehenen Felder folgendes ein: ihren erhaltenen Link, den Branch (der Standardbranch heißt in GitHub `master` und in GitLab `main`) sowie das Notebook, das Sie standarmäßig öffnen wollen.\
+    Nun geben Sie in die dafür vorgesehenen Felder folgendes ein: ihren erhaltenen Link, den Branch (der Standardbranch heißt in GitHub `master` und in GitLab `main`) sowie das Jupyter Notebook, das Sie standarmäßig öffnen wollen.\
     Dies könnte beispielsweise so aussehen:
     ![addGitSettings](images/addGitSettings.PNG)
 6. Falls erwünscht, können Moodle spezifische Einstellungen auf dieser Seite vorgenommen werden.  
@@ -44,8 +44,8 @@ For further information on that regard please refer to the IT-administrator docu
    ![addActivity](images/addActivity.png)
    ![jupyterPlugin](images/addJupyter.png)
 5. Put in a name for your Jupyter Instance.\
-   You should have received a link to a Git repository (e.g. [GitLab](https://gitlab.com/) or [GitHub](https://github.com/)) containing the Jupyter Notebooks you want to edit.
-    Now enter the following in the provided fields: your received link, the branch (the default branch is called `master` in GitHub and `main` in GitLab) and the notebook you want to open by default.\
+   You should have received a link to a Git repository (e.g. [GitLab](https://gitlab.com/) or [GitHub](https://github.com/)) containing the Jupyter Notebooks you want to edit.\
+    Now enter the following in the provided fields: your received link, the branch (the default branch is called `master` in GitHub and `main` in GitLab) and the Jupyter Notebook you want to open by default.\
     For example, it might look like this:
     ![addGitSettings](images/addGitSettings.PNG)
 6. Optionally, specify moodle specifig settings.  
