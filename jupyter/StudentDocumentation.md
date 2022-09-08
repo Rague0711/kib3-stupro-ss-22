@@ -20,7 +20,7 @@ mit dem kleinen Dreieck oben gemacht werden.
 Zum Speichern eines Notebooks kann man entweder oben auf File drücken und dann manuell auswählen oder "Strg + S" drücken.\
 ![saveNotebookDeutsch](images/saveNotebookDeutsch.png)
 Falls man ein Notebook neuladen möchte, nachdem man selbst schon Änderungen vorgenommen hat, muss man dieses erst unter anderem Namen speichern.
-Dies kann wieder oben unter dem Reiter File gemacht werden oder mit "Strg + Umschalt + S".\
+Dies kann wieder oben unter dem Reiter "File" gemacht werden oder mit "Strg + Umschalt + S".\
 Danach muss man das alte __Jupyter Notebook__ löschen und den Zurücksetzen-Knopf unten drücken.\
 ![resetButton](images/resetButtonDeutsch.png)
 Wenn man ein Notebook herunterladen möchte, klickt man wieder oben auf File und danach auf Herunterladen. Nun hat man die Datei lokal bei sich auf dem Rechner.
@@ -52,7 +52,7 @@ After the correct notebook has been selected and you come to a task where some c
 To save a notebook you can either press file at the top and then select it manually or press "Ctrl + S".\
 ![saveNotebook](images/saveNotebook.png)
 If you want to reload a notebook after you have already made changes yourself, you have to save it under a different name first.
-This can be done again above under the tab file or with "Ctrl + Shift + S".\
+This can be done again above under the tab "File" or with "Ctrl + Shift + S".\
 After that you have to delete the old one and click the reset button at the bottom.\
 ![resetButton](images/resetButton.png)
 If you want to download a notebook, click again on file and then on download. Now you have the file locally on your computer.
