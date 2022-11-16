@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot.'/course/moodleform_mod.php');
+require_once($CFG->dirroot . '/course/moodleform_mod.php');
 
 /**
  * Module instance settings form.
@@ -74,8 +74,8 @@ class mod_jupyter_mod_form extends moodleform_mod {
         $mform->addRule('repourl', null, 'required', null, 'client');
 
         $urlregex = "/(^(https?:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})\:?([0-9]{1,5})?$)"
-        . "|"
-        . "(^((https?:\/\/)|^(www\.))([a-zA-Z0-9\?\/\+\*\~\=\-\#\@\!\&\%\_\.]+\.[a-z]{2,4})(\/[a-zA-Z0-9\?\/\+\*\~\=\-\#\@\!\&\%\_]*)*$)/";
+            . "|(^((https?:\/\/)|^(www\.))"
+            . "([a-zA-Z0-9\?\/\+\*\~\=\-\#\@\!\&\%\_\.]+\.[a-z]{2,4})(\/[a-zA-Z0-9\?\/\+\*\~\=\-\#\@\!\&\%\_]*)*$)/";
 
         $mform->addRule('repourl', "Must be a valid git URL", 'regex', $urlregex, 'client');
         $mform->addRule('repourl', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');

@@ -36,17 +36,17 @@ class backup_jupyter_activity_structure_step extends backup_activity_structure_s
      */
     protected function define_structure() {
 
-        // Define each element separated
+        // Define each element separated.
         $jupyter = new backup_nested_element('jupyter', array('id'),
             array('course', 'name', 'timecreated', 'timemodified', 'intro', 'introformat', 'repourl', 'branch', 'file'));
 
-        // Define sources
+        // Define sources.
         $jupyter->set_source_table('jupyter', array('id' => backup::VAR_ACTIVITYID));
 
-        // Define file annotations
+        // Define file annotations.
         $jupyter->annotate_files('mod_jupyter', 'intro', null);
 
-        // Return the root element (jupyter), wrapped into standard activity structure
+        // Return the root element (jupyter), wrapped into standard activity structure.
         return $this->prepare_activity_structure($jupyter);
 
     }

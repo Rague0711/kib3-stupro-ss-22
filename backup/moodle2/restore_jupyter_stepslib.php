@@ -38,7 +38,7 @@ class restore_jupyter_activity_structure_step extends restore_activity_structure
 
         $paths[] = new restore_path_element('jupyter', '/activity/jupyter');
 
-        // Return the paths wrapped into standard activity structure
+        // Return the paths wrapped into standard activity structure.
         return $this->prepare_activity_structure($paths);
     }
 
@@ -52,13 +52,13 @@ class restore_jupyter_activity_structure_step extends restore_activity_structure
     protected function process_jupyter($data) {
         global $DB;
 
-        $data = (object)$data;
+        $data = (object) $data;
         $oldid = $data->id;
         $data->course = $this->get_courseid();
 
-        // insert the jupyter record
+        // Insert the jupyter record.
         $newitemid = $DB->insert_record('jupyter', $data);
-        // immediately after inserting "activity" record, call this
+        // Immediately after inserting "activity" record, call this.
         $this->apply_activity_instance($newitemid);
     }
 
