@@ -76,8 +76,5 @@ zip-plugin:
     refs:
       # Run only on specific branch
       - main
-      - JMP-1
-    # changes:
-    #   - jupyter/*
 
 
