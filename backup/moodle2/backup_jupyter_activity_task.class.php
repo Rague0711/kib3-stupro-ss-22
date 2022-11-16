@@ -47,7 +47,6 @@ class backup_jupyter_activity_task extends backup_activity_task {
         $this->add_step(new backup_jupyter_activity_structure_step('jupyter_structure', 'jupyter.xml'));
     }
 
-
     /**
      * Transformations to perform in the activity in order to get transportable (encoded) links.
      *

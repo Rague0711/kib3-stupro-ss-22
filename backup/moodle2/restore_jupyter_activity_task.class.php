@@ -22,7 +22,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/mod/jupyter/backup/moodle2/restore_jupyter_stepslib.php');
@@ -31,7 +30,6 @@ require_once($CFG->dirroot . '/mod/jupyter/backup/moodle2/restore_jupyter_stepsl
  * Class that provides all settings and steps for restoring the activity.
  */
 class restore_jupyter_activity_task extends restore_activity_task {
-
     /**
      * Definition of particular settings this activity can have.
      */

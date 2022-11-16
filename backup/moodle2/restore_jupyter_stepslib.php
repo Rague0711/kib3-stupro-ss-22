@@ -26,7 +26,6 @@
  * Class that provides all steps for restoring up the activity.
  */
 class restore_jupyter_activity_structure_step extends restore_activity_structure_step {
-
     /**
      * Creation of the standard activity structure containing all information from the backup file.
      *
