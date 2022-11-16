@@ -15,9 +15,12 @@ variables:
     IGNORE_NAMES: "lib.php, upgrade.php"
 
 .install_moodle:
-  # only:
-  #   changes:
-  #     - jupyter/*
+  rules:
+    - changes:
+      - "*.md"
+      - "setup/*"
+      when: never
+    - when: always
   before_script:
     - export PATH="/var/www/html/ci/bin:/var/www/html/ci/vendor/bin:$PATH"
     - moodle-plugin-ci install --moodle=$MOODLE_DIR --db-host=mariadb --no-init --plugin=$CI_PROJECT_DIR -vvv
@@ -26,9 +29,12 @@ variables:
     - php -S $IPADDRESS:8000 -t $MOODLE_DIR > /dev/null 2>&1 &
 
 lint:
-  # only:
-  #   changes:
-  #     - jupyter/*
+  rules:
+    - changes:
+      - "*.md"
+      - "setup/*"
+      when: never
+    - when: always
   script:
     - export PATH="/var/www/html/ci/bin:/var/www/html/ci/vendor/bin:$PATH"
     # these checks can be run without the Moodle install:
@@ -53,19 +59,15 @@ zip-plugin:
   stage: release
   # Each job needs a script, even if not used https://gitlab.com/gitlab-org/gitlab/-/issues/19717
   script:
-    #- cd jupyter
     - composer update
   artifacts:
     # Name of the resulting .zip
-    name: jupyter
-    # paths:
-    #   # Include whole directory
-    #   - jupyter/*
+    name: moodle-mod_jupyter
   only:
     refs:
       # Run only on specific branch
       - main
-      - ci-improvement-regarding-artifact
+      - JMP-1
     # changes:
     #   - jupyter/*
 
