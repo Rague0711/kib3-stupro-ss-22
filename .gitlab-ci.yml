@@ -30,6 +30,7 @@ variables:
     - php -S $IPADDRESS:8000 -t $MOODLE_DIR > /dev/null 2>&1 &
 
 lint:
+  stage: lint
   rules:
     - changes:
       - "*.md"
@@ -44,6 +45,7 @@ lint:
     - moodle-plugin-ci savepoints $CI_PROJECT_DIR
 
 test:
+  stage: test
   rules:
     - changes:
       - "*.md"
@@ -61,10 +63,8 @@ test:
     - moodle-plugin-ci grunt
     - moodle-plugin-ci phpdoc
 
-# Create jupyter.zip as artifact for download
 zip-plugin:
-  # stage: release
-  # Each job needs a script, even if not used https://gitlab.com/gitlab-org/gitlab/-/issues/19717
+  stage: release
   script:
     - composer update
   artifacts:
