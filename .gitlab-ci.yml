@@ -1,7 +1,3 @@
-stages:
-  - test
-  - release
-
 image: sopra.informatik.uni-stuttgart.de:5050/kib3-student-projects/kib3-stupro-ss-22:latest
 
 variables:
@@ -43,6 +39,12 @@ lint:
     - moodle-plugin-ci savepoints $CI_PROJECT_DIR
 
 test:
+  rules:
+    - changes:
+      - "*.md"
+      - "setup/*"
+      when: never
+    - when: always
   extends: .install_moodle
   services:
     - mariadb:10.7.4
