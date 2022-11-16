@@ -58,7 +58,7 @@ test:
 
 # Create jupyter.zip as artifact for download
 zip-plugin:
-  stage: release
+  # stage: release
   # Each job needs a script, even if not used https://gitlab.com/gitlab-org/gitlab/-/issues/19717
   script:
     - composer update
