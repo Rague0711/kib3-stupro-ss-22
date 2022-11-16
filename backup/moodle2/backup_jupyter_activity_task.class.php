@@ -22,10 +22,11 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+
 defined('MOODLE_INTERNAL') || die();
 
-require_once $CFG->dirroot . '/mod/jupyter/backup/moodle2/backup_jupyter_stepslib.php';
-require_once $CFG->dirroot . '/mod/jupyter/backup/moodle2/backup_jupyter_settingslib.php';
+require_once($CFG->dirroot . '/mod/jupyter/backup/moodle2/backup_jupyter_stepslib.php');
+require_once($CFG->dirroot . '/mod/jupyter/backup/moodle2/backup_jupyter_settingslib.php');
 
 /**
  * Class that sets all steps to backup the activity.

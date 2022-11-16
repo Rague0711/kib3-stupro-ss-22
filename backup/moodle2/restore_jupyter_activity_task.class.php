@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once $CFG->dirroot . '/mod/jupyter/backup/moodle2/restore_jupyter_stepslib.php';
+require_once($CFG->dirroot . '/mod/jupyter/backup/moodle2/restore_jupyter_stepslib.php');
 
 /**
  * Class that provides all settings and steps for restoring the activity.

@@ -22,9 +22,9 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require __DIR__ . '/../../config.php';
-require_once __DIR__ . '/lib.php';
-require __DIR__ . '/vendor/autoload.php';
+require(__DIR__ . '/../../config.php');
+require_once(__DIR__ . '/lib.php');
+require(__DIR__ . '/vendor/autoload.php');
 
 use Firebase\JWT\JWT;
 
@@ -64,7 +64,7 @@ $uniqueid = mb_strtolower($USER->username, "UTF-8");
 $jwt = JWT::encode([
     "name" => $uniqueid,
     "iat" => time(),
-    "exp" => time() + 15,
+    "exp" => time() + 15
 ], get_config('mod_jupyter', 'jupytersecret'), 'HS256');
 
 $jupyterurl = get_config('mod_jupyter', 'jupyterurl');
@@ -88,7 +88,7 @@ if ($gitreachable && $jupyterreachable) {
         'login' => $jupyterurl . gen_gitpath() . "&auth_token=" . $jwt,
         'name' => $name,
         'resetbuttontext' => get_string('resetbuttontext', 'jupyter'),
-        'description' => get_string('resetbuttoninfo', 'jupyter'),
+        'description' => get_string('resetbuttoninfo', 'jupyter')
     ]);
 } else {
     show_error_message();
@@ -108,9 +108,9 @@ function gen_gitpath(): string {
     }
 
     return '/hub/user-redirect/git-pull?repo=' .
-    urlencode($repo) .
-    '&urlpath=lab%2Ftree%2F' .
-    urlencode(substr(strrchr($repo, "/"), 1)) .
+        urlencode($repo) .
+        '&urlpath=lab%2Ftree%2F' .
+        urlencode(substr(strrchr($repo, "/"), 1)) .
         '%2F' .
         $file .
         '&branch=' .
@@ -153,7 +153,7 @@ function check_jupyter(string $url): bool {
  * @param string $url The URL to check for availability.
  * @return array Returns HTTP status code of the request and response header string
  */
-function check_url(string $url): array{
+function check_url(string $url): array {
     $client = new GuzzleHttp\Client();
     try {
         $res = $client->get($url);
@@ -165,7 +165,7 @@ function check_url(string $url): array{
 
     return [
         $res->getStatusCode(),
-        $res->getHeaderLine("x-jupyterhub-version"),
+        $res->getHeaderLine("x-jupyterhub-version")
     ];
 }
 
