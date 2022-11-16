@@ -70,6 +70,8 @@ zip-plugin:
   artifacts:
     # Name of the resulting .zip
     name: moodle-mod_jupyter
+    paths:
+      - ./*
   only:
     refs:
       # Run only on specific branch

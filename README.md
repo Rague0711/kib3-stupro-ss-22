@@ -161,5 +161,3 @@ this program. If not, see [GNU license](https://www.gnu.org/licenses).
 -   Zoller, Nick
 
 developed this plugin in the context of the Student Project of University of Stuttgart in the Summer Semester 2022
-
-test123
