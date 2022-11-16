@@ -31,4 +31,3 @@ function xmldb_jupyter_uninstall() {
 
     return true;
 }
-

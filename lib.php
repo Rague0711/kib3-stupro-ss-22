@@ -37,7 +37,7 @@ function jupyter_supports($feature) {
         case FEATURE_COMPLETION_TRACKS_VIEWS:
             return true;
         case FEATURE_GRADE_HAS_GRADE:
-            return true;    
+            return true;
         default:
             return null;
     }
@@ -101,4 +101,3 @@ function jupyter_delete_instance($id) {
 
     return true;
 }
-

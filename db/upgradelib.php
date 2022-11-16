@@ -33,4 +33,3 @@ function mod_jupyter_helper_function() {
     //
     // For more information please read {@link https://docs.moodle.org/dev/Upgrade_API}.
 }
-

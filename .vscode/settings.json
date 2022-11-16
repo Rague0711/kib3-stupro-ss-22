@@ -1,0 +1,6 @@
+{
+  "terminal.integrated.scrollback": 1000000,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+}

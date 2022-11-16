@@ -25,7 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once(__DIR__.'/upgradelib.php');
+require_once(__DIR__ . '/upgradelib.php');
 
 /**
  * Execute mod_jupyter upgrade from the given old version.
@@ -43,4 +43,3 @@ function xmldb_jupyter_upgrade($oldversion) {
 
     return true;
 }
-

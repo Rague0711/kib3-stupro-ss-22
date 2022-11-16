@@ -77,7 +77,7 @@ $gitfilelink = gen_gitfilelink();
 $gitreachable = check_url($gitfilelink)[0] === 200;
 $jupyterreachable = check_jupyter($jupyterurl);
 
-// Mark as done after user views the course
+// Mark as done after user views the course.
 $completion = new completion_info($course);
 $completion->set_module_viewed($cm);
 
@@ -86,7 +86,7 @@ echo $OUTPUT->header();
 
 if ($gitreachable && $jupyterreachable) {
     echo $OUTPUT->render_from_template('mod_jupyter/manage', [
-        'login' => $jupyterurl . gen_gitpath() . "&auth_token="  . $jwt,
+        'login' => $jupyterurl . gen_gitpath() . "&auth_token=" . $jwt,
         'name' => $name,
         'resetbuttontext' => get_string('resetbuttontext', 'jupyter'),
         'description' => get_string('resetbuttoninfo', 'jupyter')
@@ -101,8 +101,7 @@ echo $OUTPUT->footer();
  * Creates nbgitpuller part of the link to the JupyterHub.
  * @return string the formatted path and query parameters for nbgitpuller
  */
-function gen_gitpath(): string
-{
+function gen_gitpath(): string {
     global $repo, $file, $branch;
 
     if (preg_match("/\/$/", "$repo")) {
@@ -123,8 +122,7 @@ function gen_gitpath(): string
  * Generates link to file in git repository
  * @return string example: https://github.com/username/reponame/blob/branch/notebook.ipynb
  */
-function gen_gitfilelink(): string
-{
+function gen_gitfilelink(): string {
     global $repo, $file, $branch;
 
     if (preg_match("/\/$/", "$repo")) {
@@ -139,8 +137,7 @@ function gen_gitfilelink(): string
  * @param string $url
  * @return bool
  */
-function check_jupyter(string $url): bool
-{
+function check_jupyter(string $url): bool {
     $res = check_url($url);
 
     if ($res[0] !== 401 && strpos($url, "127.0.0.1") !== false) {
@@ -157,8 +154,7 @@ function check_jupyter(string $url): bool
  * @param string $url The URL to check for availability.
  * @return array Returns HTTP status code of the request and response header string
  */
-function check_url(string $url): array
-{
+function check_url(string $url): array {
     $client = new GuzzleHttp\Client();
     try {
         $res = $client->get($url);
@@ -177,8 +173,7 @@ function check_url(string $url): array
 /**
  * Shows different error messages depending on cause of error
  */
-function show_error_message()
-{
+function show_error_message() {
     global $gitreachable, $jupyterreachable, $jupyterurl, $gitfilelink, $moduleinstance, $modulecontext;
 
     \core\notification::error(get_string('errorheading', 'jupyter', ['instancename' => $moduleinstance->name]));
