@@ -64,7 +64,7 @@ test:
     - moodle-plugin-ci phpdoc
 
 zip-plugin:
-  stage: release
+  stage: zip-plugin
   script:
     - composer update
   artifacts:
