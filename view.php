@@ -22,8 +22,8 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require(__DIR__.'/../../config.php');
-require_once(__DIR__.'/lib.php');
+require(__DIR__ . '/../../config.php');
+require_once(__DIR__ . '/lib.php');
 require(__DIR__ . '/vendor/autoload.php');
 
 use Firebase\JWT\JWT;
@@ -101,7 +101,8 @@ echo $OUTPUT->footer();
  * Creates nbgitpuller part of the link to the JupyterHub.
  * @return string the formatted path and query parameters for nbgitpuller
  */
-function gen_gitpath() : string {
+function gen_gitpath(): string
+{
     global $repo, $file, $branch;
 
     if (preg_match("/\/$/", "$repo")) {
@@ -122,7 +123,8 @@ function gen_gitpath() : string {
  * Generates link to file in git repository
  * @return string example: https://github.com/username/reponame/blob/branch/notebook.ipynb
  */
-function gen_gitfilelink() : string {
+function gen_gitfilelink(): string
+{
     global $repo, $file, $branch;
 
     if (preg_match("/\/$/", "$repo")) {
@@ -137,7 +139,8 @@ function gen_gitfilelink() : string {
  * @param string $url
  * @return bool
  */
-function check_jupyter(string $url) : bool {
+function check_jupyter(string $url): bool
+{
     $res = check_url($url);
 
     if ($res[0] !== 401 && strpos($url, "127.0.0.1") !== false) {
@@ -154,7 +157,8 @@ function check_jupyter(string $url) : bool {
  * @param string $url The URL to check for availability.
  * @return array Returns HTTP status code of the request and response header string
  */
-function check_url(string $url) : array {
+function check_url(string $url): array
+{
     $client = new GuzzleHttp\Client();
     try {
         $res = $client->get($url);
@@ -173,7 +177,8 @@ function check_url(string $url) : array {
 /**
  * Shows different error messages depending on cause of error
  */
-function show_error_message() {
+function show_error_message()
+{
     global $gitreachable, $jupyterreachable, $jupyterurl, $gitfilelink, $moduleinstance, $modulecontext;
 
     \core\notification::error(get_string('errorheading', 'jupyter', ['instancename' => $moduleinstance->name]));
@@ -186,5 +191,4 @@ function show_error_message() {
             \core\notification::error(get_string('instancesettingserror', 'jupyter', ['url' => $gitfilelink]));
         }
     }
-
 }
