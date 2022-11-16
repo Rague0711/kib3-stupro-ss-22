@@ -59,7 +59,7 @@ test:
     - moodle-plugin-ci phpmd
     - moodle-plugin-ci validate
     - moodle-plugin-ci phpunit
-    - moodle-plugin-ci codechecker
+    - moodle-plugin-ci codechecker --max-warnings 0
     - moodle-plugin-ci grunt
     - moodle-plugin-ci phpdoc
 
