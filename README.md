@@ -140,24 +140,24 @@ this program. If not, see [GNU license](https://www.gnu.org/licenses).
 
 ## Additional resources
 
--   [Moodle official development main page](https://docs.moodle.org/dev/Main_Page)
--   [Moodle official output api page](https://docs.moodle.org/dev/Output_API)
--   [Moodle official javascript page](https://docs.moodle.org/dev/Javascript_Modules)
--   [Moodle official development activity modules page](https://docs.moodle.org/dev/Activity_modules)
--   [Moodle programming course](https://www.youtube.com/playlist?list=PLgfLVzXXIo5q10qVXDVyD-JZVyZL9pCq0)
+- [Moodle official development main page](https://docs.moodle.org/dev/Main_Page)
+- [Moodle official output api page](https://docs.moodle.org/dev/Output_API)
+- [Moodle official javascript page](https://docs.moodle.org/dev/Javascript_Modules)
+- [Moodle official development activity modules page](https://docs.moodle.org/dev/Activity_modules)
+- [Moodle programming course](https://www.youtube.com/playlist?list=PLgfLVzXXIo5q10qVXDVyD-JZVyZL9pCq0)
 
 ## Development Team
 
--   Buchholz, Max
--   Günther, Ralph
--   Klaß, Robin
--   König, Solveigh
--   Marinic, Noah
--   Schüle, Maximilian
--   Stoll, Timo
--   Weber, Raphael
--   Wohlfart, Phillip
--   Zhang, Yichi
--   Zoller, Nick
+- Buchholz, Max
+- Günther, Ralph
+- Klaß, Robin
+- König, Solveigh
+- Marinic, Noah
+- Schüle, Maximilian
+- Stoll, Timo
+- Weber, Raphael
+- Wohlfart, Phillip
+- Zhang, Yichi
+- Zoller, Nick
 
 developed this plugin in the context of the Student Project of University of Stuttgart in the Summer Semester 2022

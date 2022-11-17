@@ -3,4 +3,9 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
+  "editor.formatOnSave": true,
+  "phpSniffer.standard": "moodle",
+  "[php]": {
+    "editor.defaultFormatter": "wongjn.php-sniffer"
+  },
 }
