@@ -2,7 +2,7 @@
 
 Install the following tools:
 
-- [VS Code](https://code.visualstudio.com/)
+- [VS Code](https://code.visualstudio.com/) (if you are on windows make sure that add VS Code to PATH is checked during installation)
 - [Docker](https://www.docker.com/)
 
 # 2. Moodle and Jupyterhub setup
