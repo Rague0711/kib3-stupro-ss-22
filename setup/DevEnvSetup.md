@@ -7,6 +7,11 @@ Install the following tools:
 
 # 2. Moodle Docker Setup
 
+```
+docker-compose -f setup/jupyterhub_docker/docker-compose.yml up -d --build
+docker-compose -f setup/moodle_docker/docker-compose.yml up -d --build
+```
+
 # 3. VS Code Setup
 
 Install the following extensions:
@@ -42,3 +47,5 @@ code --install-extension ms-vscode-remote.remote-containers \
 ## Clone the repository
 
 `git clone git@sopra.informatik.uni-stuttgart.de:kib3-students-project/moodle-mod_jupyter.git ./jupyter`
+
+TODO: finish this...

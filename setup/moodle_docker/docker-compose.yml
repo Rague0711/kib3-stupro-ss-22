@@ -1,7 +1,6 @@
-version: '2'
 services:
   mariadb:
-    image: docker.io/bitnami/mariadb:10.6
+    image: docker.io/bitnami/mariadb:10.9.4
     restart: unless-stopped
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
