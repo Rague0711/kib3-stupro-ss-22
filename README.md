@@ -62,7 +62,7 @@ Make sure that the composer package manager is installed (see [getcomposer.org](
 New dependencies can be added in the `composer.json` file via the `require` key (package names are mapped to version constraints; see composer.json for an example). Afterwards, you have to run
 
 ```shell
-$ composer update
+$ composer install
 ```
 
 to resolve and install the newly added dependencies.

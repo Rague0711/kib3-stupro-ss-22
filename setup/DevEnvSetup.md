@@ -82,7 +82,7 @@ git clone https://sopra.informatik.uni-stuttgart.de/kib3-students-project/moodle
 Change to the plugin folder and install the php dependencies:
 
 ```
-cd jupyter && composer update
+cd jupyter && composer install
 ```
 
 Open a new vs code window in the repository folder:
