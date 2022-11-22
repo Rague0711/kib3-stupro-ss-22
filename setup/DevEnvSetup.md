@@ -76,7 +76,7 @@ git clone git@sopra.informatik.uni-stuttgart.de:kib3-students-project/moodle-mod
 if you are using http:
 
 ```
-git clone https://sopra.informatik.uni-stuttgart.de/kib3-students-project/moodle-mod_jupyter.git
+git clone https://sopra.informatik.uni-stuttgart.de/kib3-students-project/moodle-mod_jupyter.git ./jupyter
 ```
 
 Change to the plugin folder and install the php dependencies:
